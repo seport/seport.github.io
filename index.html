@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sarah Port</title>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+<link href="https://fonts.googleapis.com/css?family=Nunito:300,400,400i,700,700i" rel="stylesheet">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="minigame.js"></script>
+<script src="script.js"></script>
+</head>
+<body>
+<div id="nav">
+	<ul class="right">
+		<li><a href="https://github.com/seport" target="_blank">Github</a></li>
+		<li><a href="https://jsfiddle.net/user/seport/fiddles/" target="_blank">JSFiddle</a></li>
+		<li><a href="https://www.linkedin.com/in/seport" target="_blank">LinkedIn</a></li>
+	</ul>
+	<ul>
+		<hr>
+		<li class="goabout">About</li>
+		<li class="goskills">Skills</li>
+		<li class="goprojects">Projects</li>
+		<li class="gocontact">Contact</li>
+	</ul>
+	<!--ul>
+		<li><a href="/blog">Blog</a></li>
+	</ul-->
+</div>
+
+<div id="about">
+	<div class="about">
+		<h1>Hi, I'm Sarah. I make<br/>websites and things.</h1>
+		<div class="game">
+			<div class="howtoplay">
+				<p>
+					Press SPACE to start
+				</p>
+				<p>
+					Use your UP and DOWN arrows to change shape
+				</p>
+				<p>
+					Collect the coins
+				</p>
+			</div>
+			<div class="gameover">
+				<p class="endmessage">
+				</p>
+				<p class="finalscore">
+				</p>
+				<p>
+					Press SPACE to try again
+				</p>
+			</div>
+			<div class="score"></div>
+			<div class="player mobi">
+				<div class="screen"></div>
+				</div>
+			<div class="scenery">
+			</div>
+		</div>
+		<p class="startbutton">Press START to play</p>
+	</div>
+</div>
+
+<div id="skills">
+	<div class="skillscontent">
+		<h1>Skills</h1>
+		<img src="pixelme.png" class="skills">
+		<div class="skills">
+			<table>
+				<thead>
+					<tr>
+						<td>Skill</td>
+						<td>Key<br/>Ability</td>
+						<td>Total</td>
+						<td></td>
+						<td>Ranks</td>
+						<td></td>
+						<td>Ability<br/>Mod</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><img src="js.png"><br/>Javascript</td>
+						<td>Int</td>
+						<td>5</td>
+						<td>=</td>
+						<td>3</td>
+						<td>+</td>
+						<td>2</td>
+					</tr>
+					<tr>
+						<td><img src="nodejs.png"><br/>Node.js</td>
+						<td>Int</td>
+						<td>4</td>
+						<td>=</td>
+						<td>2</td>
+						<td>+</td>
+						<td>2</td>
+					</tr>
+					<tr>
+						<td><img src="angularjs.png"><br/>Angular</td>
+						<td>Dex</td>
+						<td>4</td>
+						<td>=</td>
+						<td>3</td>
+						<td>+</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td><img src="jquery.png"><br/>jQuery</td>
+						<td>Int</td>
+						<td>4</td>
+						<td>=</td>
+						<td>2</td>
+						<td>+</td>
+						<td>2</td>
+					</tr>
+					<tr>
+						<td><img src="rubyonrails.png"><br/>Ruby on Rails</td>
+						<td>Int</td>
+						<td>3</td>
+						<td>=</td>
+						<td>1</td>
+						<td>+</td>
+						<td>2</td>
+					</tr>
+				<!--/tbody>
+			</table>
+		</div>
+		<div class="skills">
+			<table>
+				<thead>
+					<tr>
+						<td>Skill</td>
+						<td>Key<br/>Ability</td>
+						<td>Total</td>
+						<td></td>
+						<td>Ranks</td>
+						<td>Ability<br/>Mod</td>
+					</tr>
+				</thead>
+				<tbody-->
+					<tr>
+						<td><img src="mongodb.png"><br/>MongoDB</td>
+						<td>Int</td>
+						<td>4</td>
+						<td>=</td>
+						<td>2</td>
+						<td>+</td>
+						<td>2</td>
+					</tr>
+					<tr>
+						<td><img src="mysql.svg"><br/>MySQL</td>
+						<td>Int</td>
+						<td>3</td>
+						<td>=</td>
+						<td>1</td>
+						<td>+</td>
+						<td>2</td>
+					</tr>
+					<tr>
+						<td><img src="html5.png"><br/>HTML</td>
+						<td>Cha</td>
+						<td>4</td>
+						<td>=</td>
+						<td>3</td>
+						<td>+</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td><img src="css3.png"><br/>CSS</td>
+						<td>Cha</td>
+						<td>4</td>
+						<td>=</td>
+						<td>3</td>
+						<td>+</td>
+						<td>1</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div id="projectswrapper">
+	<h1>Projects</h1>
+	<div id="projects">
+	<a href="http://www.stayloudla.com/" target="_blank"><div class="project">
+		<h1>Stay Loud, LA!</h1>
+		<div class="desktop">
+			<div class="screen" style="background-image:url('stayloudladesk.png')"></div>
+		</div>
+	</div></a>
+	<a href="http://www.taskb.it/" target="_blank"><div class="project">
+		<h1>taskb.it</h1>
+		<div class="mobile">
+			<div class="screen" style="background-image:url('taskbitmobi.png')"></div>
+		</div>
+		<div class="desktop">
+			<div class="screen" style="background-image:url('taskbitdesk.png')"></div>
+		</div>
+	</div></a>
+	<!--a href="/blog/2017/01/18/fanimaid-volunteer-website/" target="_blank"><div class="project">
+		<h1>Fanimaid Volunteer Website</h1>
+		<div class="mobile">
+			<div class="screen" style="background-image:url('fanimaidmobi.png')"></div>
+		</div>
+		<div class="desktop">
+			<div class="screen" style="background-image:url('fanimaiddesk.png')"></div>
+		</div>
+	</div></a-->
+	<a href="https://github.com/seport/package-log-database" target="_blank"><div class="project">
+		<h1>UCHA Package Log</h1>
+		<div class="desktop">
+			<div class="screen" style="background-image:url('packagelogtab.png')"></div>
+		</div>
+	</div></a>
+	<div class="project">
+	</div>
+	<!--ul>
+		<li>Mail Room Package Log</li>
+		<li>Mad Libs Generator</li>
+		<li>Fanimaid Website</li>
+		<li>Mobiliziation</li>
+	</ul-->
+</div>
+</div>
+
+<div id="blog">
+</div>
+
+<div id="contact">
+	<div class="contactcontainer">
+		<h1>Want to work on something?</h1>
+		<div class="socialicons"><a href="https://github.com/seport" target="_blank"><img src="github.png"></a>
+		<a href="https://jsfiddle.net/user/seport/fiddles/" target="_blank"><img src="jsfiddle.png"></a>
+		<a href="https://www.linkedin.com/in/seport" target="_blank"><img src="linkedin.png"></a></div>
+		<div class="contact"></div>
+	</div>
+	<div class="contactbottom">
+		<p>©Sarah Port 2017</p>
+	</div>
+</div>
+
+</body>
+</html>
