@@ -5,12 +5,14 @@ var score = 0;
 var advancegame;
 var lastObjPos = 0;
 var level = 1;
+var lives = 3;
 $('.score').text(score);
 
 $(document).on('click','.startbutton',function(){
   $('.startbutton').remove();
   $('.game').css({"width":$(window).width(),"height":"300px"});
   $('.howtoplay').css({"display":"block"})
+  $('.gameinfo').show();
   gameopen = true;
 })
 
@@ -41,7 +43,10 @@ $(document).on('keydown',function(e){
         $('.scenery').css({"left":"0px"});
         lastObjPos = 0;
         score = 0;
+        level = 1;
+        lives = 3;
         $('.score').text(0)
+        populateLives()
       	gameset();
         gamestart = true;
         $('.gameover').css({"display":"none"});
@@ -74,12 +79,8 @@ function collision(el){
       $('.score').text(score);
     }
     else if(el.hasClass('obstacle')){
-    	gamestart = false;
-      clearInterval(advancegame);
-      $('.player').css({"animation-name":""});
-      $('.gameover').css({"display":"block"});
-      $('.endmessage').text("GAME OVER!!!");
-      $('.finalscore').text("Score: " + score);
+      el.remove()
+      loseHealth()
     }
     else if(el.hasClass('end')){
       gamestart = false;
@@ -92,9 +93,39 @@ function collision(el){
   }
 
 	if(el.offset().left < 0){
-  	el.remove()
+    el.remove()
+    if(el.hasClass('coin')){
+      loseHealth()
+    }
     addObject();
   }
+}
+
+function loseHealth(){
+  if(lives <= 1){
+    $('.lives').text("♡♡♡")
+    gamestart = false;
+    clearInterval(advancegame);
+    $('.player').css({"animation-name":""});
+    $('.gameover').css({"display":"block"});
+    $('.endmessage').text("GAME OVER!!!");
+    $('.finalscore').text("Score: " + score);
+  }
+  else{
+    lives--;
+    populateLives();
+  }
+}
+
+function populateLives(){
+  var hearts = "";
+  for(i=0;i<(3-lives);i++){
+    hearts+="♡"
+  }
+  for(i=0;i<lives;i++){
+    hearts += "❤"
+  }
+  $('.lives').text(hearts)
 }
 
 function gameset(){

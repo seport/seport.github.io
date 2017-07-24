@@ -292,10 +292,11 @@ body{
   display: none;
   font-family: monospace;
 }
-.score{
+.gameinfo{
   position: absolute;
   right: 10px;
   font-family: monospace;
+  display: none;
 }
 
 .player{
