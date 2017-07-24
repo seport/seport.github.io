@@ -4,6 +4,7 @@ var form = 'mobi';
 var score = 0;
 var advancegame;
 var lastObjPos = 0;
+var level = 1;
 $('.score').text(score);
 
 $(document).on('click','.startbutton',function(){
@@ -55,7 +56,7 @@ $(document).on('keydown',function(e){
 function advance(){
 	left = $('.scenery').css("left");
 	left = left.slice(0, -2);
-  left--;
+  left-=level;
   left = left + "px";
 	$('.scenery').css({"left":left});
 	$('.scenery').children().each(function(){
@@ -69,6 +70,7 @@ function collision(el){
       el.remove();
       addObject();
       score++;
+      level = 1 + (0.5 * Math.floor(score/5))
       $('.score').text(score);
     }
     else if(el.hasClass('obstacle')){
