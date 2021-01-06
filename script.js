@@ -5,7 +5,7 @@ $(document).ready(function(){
 	right = $(".goabout").width() - 10;
 	$("#nav hr").css({"margin-left":left,"width":right})
 	pre = 'zjufkw:'
-	name = 'vjbjqn.ywbk'
+	name = 'vnywbk.qu'
 	host = 'dzjuf'
 	link = pre + name + "@" + host + ".xwz"
 	$('.contact').html("<a href=" + link + ">Email Me</a>");
