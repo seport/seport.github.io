@@ -1,23 +1,19 @@
-import App from './App';
+import _ from 'lodash';
+import printMe from './print.js';
 
-class LikeButton extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { liked: false };
-  }
 
-  render() {
-    if (this.state.liked) {
-      return <App />;
-    }
+function component() {
+  const element = document.createElement('div');
+  const btn = document.createElement('button');
 
-    return (
-      <button onClick={() => this.setState({ liked: true }) }>
-        Likes
-      </button>
-    );
-  }
+  element.innerHTML = _.join(['Hello', 'webpacks :D'], ' ');
+
+  btn.innerHTML = 'Click me and check the console!';
+  btn.onclick = printMe;
+
+  element.appendChild(btn);
+
+  return element;
 }
 
-let domContainer = document.querySelector('#app');
-ReactDOM.render(<LikeButton />, domContainer);
+document.body.appendChild(component());
