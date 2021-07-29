@@ -8,8 +8,8 @@ import Contact from './pages/Contact';
 import Blogs from './pages/Blogs';
 
 const App = () => <div>
-    <Header />
     <Hero />
+    <Header />
     <Skills />
     <Blogs />
     <Clients />
