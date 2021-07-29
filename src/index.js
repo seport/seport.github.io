@@ -1,7 +1,10 @@
 import _ from 'lodash';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App.jsx';
+import App from './App';
+
+import './style.css';
+
 
 const element = document.createElement('div');
 
