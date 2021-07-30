@@ -124,7 +124,7 @@ body{
 	text-align: center;
 	/*background-color: #BFD8D2;*/
 	background-color: #fef4f1;
-	padding: 30px;
+	padding: 20vw;
 	min-height: calc(100vh);
 	display: flex;
 	justify-content: center;
@@ -134,35 +134,55 @@ body{
 	margin-bottom: 100px;
 	text-align: left;
 	align-self: center;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	justify-content: center;
 }
-#skills img{
-	margin-top: 100px;
+#skills h1 {
+	display: inline-block;
 }
-#skills table img{
-	margin-top: 0;
+#skills ul {
+	display: flex;
+	flex-flow: row wrap;
+	list-style-type: none;
 }
-.skills{
-	float: left;
-	margin-right: 20px;
+
+.skill-card {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
+	font-size: 24px;
+	position: relative;
+	transition: all 0.5s;
+	height: 200px;
+	width: 150px;
 }
-.skills table tbody tr td{
-	border: 1px solid black;
+
+.skill-card__sprout::after {
+	content: '🌱';
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.skill-card__container {
+	height: 250px;
+	width: 200px;
+	transition: all 0.5s;
+}
+.skill-card__container:hover {
+	transform: scale(1.1);
+	cursor: pointer;
+}
+
+#blogs{
+	margin-top: 50px;
 	text-align: center;
-}
-.skills table tbody tr td:first-child{
-	border: none;
-	background-color: black;
-	color: white;
-}
-.skills table tbody tr td:first-child img{
-	width: 30px;
-	filter: brightness(0) invert(1);
-}
-.skills table tbody tr td:nth-child(4){
-	border: 0;
-}
-.skills table tbody tr td:nth-child(6){
-	border: 0;
+	padding: 30px;
+	min-height: calc(100vh);
+	display: flex;
+	justify-content: center;
 }
 
 #projects{
@@ -301,6 +321,16 @@ body{
 	bottom: 0;
 	left: 0;
 	right: 0;
+}
+
+/** COMPONENTS **/
+.card {
+	background: white;
+	box-shadow: 0px 0px 5px rgba(0,0,0,0.25);
+	border-radius: 5px;
+	display: inline-block;
+	padding: 15px;
+	margin: 15px;
 }
 
 /*** MINI GAME ***/

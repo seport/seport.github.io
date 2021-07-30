@@ -13,7 +13,7 @@ return (<div id="nav" className={heroVisible ? "hero-visible" : ""}>
     <li><a href="https://jsfiddle.net/user/seport/fiddles/" target="_blank">JSFiddle</a></li>
     <li><a href="https://www.linkedin.com/in/seport" target="_blank">LinkedIn</a></li>
 </ul>
-<ScrollSpy>
+<ScrollSpy duration={750}>
   <a href="#about" ref={React.createRef()}>
     About
   </a>
