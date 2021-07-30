@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from './components/Header';
 import Hero from './pages/Hero';
-import Clients from './pages/Clients';
 import Skills from './pages/Skills';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
@@ -12,7 +11,6 @@ const App = () => <div>
     <Header />
     <Skills />
     <Blogs />
-    <Clients />
     <Projects />
     <Contact />
 </div>;

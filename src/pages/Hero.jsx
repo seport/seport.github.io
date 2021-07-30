@@ -1,6 +1,9 @@
-import React from 'react';
+import React, {useRef, useEffect} from 'react';
+// import useIsVisible from '../hooks/useIsVisible';
 
-const Hero = () => <div id="about">
+export const heroRef = React.createRef();
+
+const Hero = () => <div id="about" ref={heroRef}>
 <div class="about">
     <h1>Hi, I'm Sarah. 👋 <br/> I make websites and things.</h1>
     {/* <div class="game">

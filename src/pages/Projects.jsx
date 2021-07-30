@@ -1,4 +1,5 @@
 import React from 'react';
+import Clients from '../components/Clients';
 import crocodentistImg from '../crocodentist.gif';
 import faceworkMobileImg from '../facework-mobile.png';
 import faceworkDesktopImg from '../facework-desktop.png';
@@ -29,6 +30,7 @@ const Projects = () => <div id="projectswrapper">
 </div></a>
 <div class="project">
 </div>
+<Clients />
 </div>
 </div>
 

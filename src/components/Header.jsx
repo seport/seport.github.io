@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ScrollSpy from 'react-scrollspy-navigation';
+import useIsVisible from '../hooks/useIsVisible';
+import {heroRef} from '../pages/Hero';
 
-const Header = () => <div id="nav">
+const Header = () => {
+    const heroVisible = useIsVisible(heroRef);
+    
+return (<div id="nav" className={heroVisible ? "hero-visible" : ""}>
 <ul class="right">
     <li><a href="https://twitter.com/seport_">Twitter</a></li>
     <li><a href="https://github.com/seport" target="_blank">Github</a></li>
@@ -17,6 +22,10 @@ const Header = () => <div id="nav">
     Skills
   </a>
   {` / `}
+  <a href="#blogs" ref={React.createRef()}>
+    Blogs
+  </a>
+  {` / `}
   <a href="#projectswrapper" ref={React.createRef()}>
     Projects
   </a>
@@ -25,6 +34,6 @@ const Header = () => <div id="nav">
     Contact
   </a>
 </ScrollSpy>
-</div>
+</div>)}
 
 export default Header;
