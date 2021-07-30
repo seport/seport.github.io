@@ -120,7 +120,6 @@ body{
 }
 
 #skills{
-	margin-top: 50px;
 	text-align: center;
 	/*background-color: #BFD8D2;*/
 	background-color: #fef4f1;
@@ -149,22 +148,16 @@ body{
 }
 
 .skill-card {
-	display: flex;
-	align-items: center;
-	justify-content: center;
 	font-weight: bold;
 	font-size: 24px;
-	position: relative;
 	transition: all 0.5s;
-	height: 200px;
-	width: 150px;
 }
 
 .skill-card__sprout::after {
 	content: '🌱';
 	position: absolute;
-	top: 0;
-	right: 0;
+	top: 15px;
+	right: 15px;
 }
 .skill-card__container {
 	height: 250px;
@@ -183,6 +176,17 @@ body{
 	min-height: calc(100vh);
 	display: flex;
 	justify-content: center;
+}
+
+#blogs ul {
+	list-style-type: none;
+	display: flex;
+	flex-flow: column nowrap;
+	
+}
+
+#blogs ul li {
+	margin: 15px;
 }
 
 #projects{
@@ -331,6 +335,11 @@ body{
 	display: inline-block;
 	padding: 15px;
 	margin: 15px;
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+	justify-content: center;
+	position: relative;
 }
 
 /*** MINI GAME ***/

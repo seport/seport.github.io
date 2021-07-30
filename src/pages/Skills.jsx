@@ -3,7 +3,7 @@ import Card from "../components/Card";
 
 const SkillCard = ({ skill, sprout }) => (
   <div className="skill-card__container">
-    <Card>
+    <Card height="200px" width="50px">
       <div className="skill-card">
         {sprout && <div className="skill-card__sprout"></div>}
         {skill}

@@ -1,7 +1,15 @@
-import React from 'react';
+import React from "react";
 
-const Card = ({children}) => <div className="card">
+const Card = ({ height, width, children }) => (
+  <div
+    className="card"
+    style={{
+      minHeight: `${height ? height : "auto"}`,
+      minWidth: `${width ? width : "auto"}`,
+    }}
+  >
     {children}
-</div>
+  </div>
+);
 
 export default Card;

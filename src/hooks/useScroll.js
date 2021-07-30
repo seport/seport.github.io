@@ -1,15 +1,25 @@
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from "react";
 
 const useScroll = () => {
-    const [scrollY, setScrollY] = useState(0);
+  const [scrollY, setScrollY] = useState(0);
 
-    const onScroll = () => {
-        setScrollY(window.scrollY);
+  const throttle = (fn) => {
+    var time = Date.now();
+    return function() {
+      if ((time + 100 - Date.now()) < 0) {
+        fn();
+        time = Date.now();
+      }
     }
+  }
 
-    window.addEventListener("scroll", onScroll);
+  const onScroll = () => {
+    setScrollY(window.scrollY);
+  };
 
-    return scrollY;
+  window.addEventListener("scroll", throttle(onScroll));
+
+  return scrollY;
 };
 
 export default useScroll;
