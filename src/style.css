@@ -67,28 +67,24 @@ body{
 
 
 #about{
-	padding-top: 20px;
 	height: calc(100vh - 170px);
+	color: white;
+	position: relative;
+	overflow: hidden;
+}
+#about .about-bg {
+	height: 100%;
 	display: flex;
 	justify-content: center;
+	padding-top: 20px;
+	width: 100%;
 	background-image:
 		linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
 		url(twolaptops-1.jpeg);
 	background-size: cover;
 	background-blend-mode: multiply;
-	color: white;
-}
-#about:after{
-  content:"";
-  height: 100px;
-  width: 100%;
-  position: absolute;
-  bottom: 0px;
-  left: 0;
-  right: 0;
-  background: radial-gradient(circle at 50% 0%, white 50%, transparent 51%);
-  background-size: 100px 100px;
-  background-repeat: repeat-x;
+	transform: scale(1.5);
+	transition: all 0.25s;
 }
 #about .about{
 	align-self: center;

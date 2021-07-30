@@ -1,12 +1,21 @@
-import React, {useRef, useEffect} from 'react';
-// import useIsVisible from '../hooks/useIsVisible';
+import React, { useRef, useEffect } from "react";
+import useScroll from "../hooks/useScroll";
 
 export const heroRef = React.createRef();
 
-const Hero = () => <div id="about" ref={heroRef}>
-<div class="about">
-    <h1>Hi, I'm Sarah. 👋 <br/> I make websites and things.</h1>
-    {/* <div class="game">
+const Hero = () => {
+  const scrollY = useScroll();
+  return (
+    <div id="about" ref={heroRef}>
+      <div
+        class="about-bg"
+        style={{ backgroundPosition: `0px ${-scrollY / 4}px` }}
+      >
+        <div class="about">
+          <h1>
+            Hi, I'm Sarah. 👋 <br /> I make websites and things.
+          </h1>
+          {/* <div class="game">
         <div class="howtoplay">
             <p>
                 Press SPACE to start
@@ -38,8 +47,9 @@ const Hero = () => <div id="about" ref={heroRef}>
         </div>
     </div>
     <p class="startbutton">Press START to play</p> */}
-</div>
-</div>
-;
-
+        </div>
+      </div>
+    </div>
+  );
+};
 export default Hero;
