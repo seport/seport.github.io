@@ -6,7 +6,7 @@ const useScroll = () => {
   const throttle = (fn) => {
     var time = Date.now();
     return function() {
-      if ((time + 100 - Date.now()) < 0) {
+      if ((time + 10 - Date.now()) < 0) {
         fn();
         time = Date.now();
       }

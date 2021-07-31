@@ -10,7 +10,7 @@ const useIsVisible = (ref) => {
         const height = ref.current.offsetHeight;
         const scrollPosition = height - top;
 
-        if(scrollY <= scrollPosition && scrollY >= top) {
+        if(scrollY < (scrollPosition) && scrollY >= top) {
             if(isVisible === false) {
                 setIsVisible(true)
             }
