@@ -168,6 +168,13 @@ body {
   flex-flow: column;
   align-items: center;
   justify-content: center;
+  max-height: 10000px;
+  overflow: hidden;
+  transition: all 0.25s;
+}
+.skillscontent.hidden {
+  opacity: 0;
+  max-height: 0;
 }
 #skills h1 {
   display: inline-block;

@@ -5,19 +5,21 @@ const useScroll = () => {
 
   const throttle = (fn) => {
     var time = Date.now();
-    return function() {
-      if ((time + 10 - Date.now()) < 0) {
+    return function () {
+      if (time + 10 - Date.now() < 0) {
         fn();
         time = Date.now();
       }
-    }
-  }
+    };
+  };
 
   const onScroll = () => {
     setScrollY(window.scrollY);
   };
 
-  window.addEventListener("scroll", throttle(onScroll));
+  useEffect(() => {
+    window.addEventListener("scroll", throttle(onScroll));
+  }, []);
 
   return scrollY;
 };
