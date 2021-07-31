@@ -207,6 +207,10 @@ body {
   cursor: pointer;
 }
 
+#recommended-reading {
+  width: 100%;
+}
+
 #blogs {
   text-align: center;
   padding: 30px;

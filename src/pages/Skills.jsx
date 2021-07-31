@@ -1,19 +1,11 @@
 import React, { useEffect } from "react";
 import useWindowLocation from "../hooks/useWindowLocation";
 import Card from "../components/Card";
+import RecommendedReading from "../components/RecommendedReading";
+import { handleNav } from "../helpers/navHelpers";
 
-/******  HANDLE NAV ********/
-
-const handleNav = () => {
-  window.history.pushState(null, "", "/?skill=react#skills");
-  let myEvent = new Event("popstate");
-  window.dispatchEvent(myEvent);
-};
-
-/************************* */
-
-const SkillCard = ({ skill, sprout }) => (
-  <div className="skill-card__container" onClick={() => handleNav("react")}>
+const SkillCard = ({ skill, skillId, sprout }) => (
+  <div className="skill-card__container" onClick={() => handleNav(`/?skill=${skillId}#skills`)}>
     <Card height="200px" width="50px">
       <div className="skill-card">
         {sprout && <div className="skill-card__sprout"></div>}
@@ -25,11 +17,6 @@ const SkillCard = ({ skill, sprout }) => (
 
 const Skills = () => {
   const location = useWindowLocation();
-  // window.addEventListener("popstate", () => {console.log(window.location)});
-
-  useEffect(() => {
-    console.log(location);
-  }, [location]);
 
   return (
     <div id="skills">
@@ -42,39 +29,41 @@ const Skills = () => {
           </h1>
           <ul>
             <li>
-              <SkillCard skill="React" />
+              <SkillCard skill="React" skillId="react" />
             </li>
             <li>
-              <SkillCard skill="Redux" />
+              <SkillCard skill="Redux" skillId="redux" />
             </li>
             <li>
-              <SkillCard skill="Node.js" />
+              <SkillCard skill="Node.js" skillId="node" />
             </li>
             <li>
-              <SkillCard skill="Typescript" sprout={true} />
+              <SkillCard skill="Typescript" skillId="ts" sprout={true} />
             </li>
             <li>
-              <SkillCard skill="Ruby/Rails" />
+              <SkillCard skill="Ruby/Rails" skillId="rails" />
             </li>
             <li>
-              <SkillCard skill="Elixir" sprout={true} />
+              <SkillCard skill="Elixir" skillId="elixir" sprout={true} />
             </li>
             <li>
-              <SkillCard skill="Cypress" />
+              <SkillCard skill="Cypress" skillId="cypress" />
             </li>
           </ul>
         </div>
         <div class={`skillscontent ${!location.search.skill ? "hidden" : ""}`}>
-          <button type="button" onClick={() => {
-            window.history.pushState(null, "", "/#skills")
-            let myEvent = new Event("popstate");
-            window.dispatchEvent(myEvent);
-          }}>Back</button>
-          <h1>React Resources</h1>
-          <p>Blah blah  bblah  blah abl</p>
-          <p></p>
-          <p>:)</p>
-          <p>The  end</p>
+          <Card width="60vw">
+            <a
+              href="/"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNav("/#skills")
+              }}
+            >
+              x
+            </a>
+            <RecommendedReading language={location.search.skill} />
+          </Card>
         </div>
       </div>
     </div>
