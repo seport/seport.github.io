@@ -10,6 +10,10 @@ body {
   font-family: "Nunito", sans-serif;
 }
 
+a {
+  color: black;
+}
+
 #nav {
   position: fixed;
   left: 0;
@@ -149,33 +153,10 @@ body {
   z-index: 1;
 }
 #skills {
-  margin-top: 10px;
-  text-align: center;
-  /*background-color: #BFD8D2;*/
-  /* background-color: #fef4f1; */
-  padding: 0 20vw;
-  min-height: calc(100vh);
-  display: flex;
-  justify-content: center;
+  padding: 100px 0;
   position: relative;
 }
-.skillscontent {
-  margin-top: 100px;
-  margin-bottom: 100px;
-  text-align: left;
-  align-self: center;
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  justify-content: center;
-  max-height: 10000px;
-  overflow: hidden;
-  transition: all 0.25s;
-}
-.skillscontent.hidden {
-  opacity: 0;
-  max-height: 0;
-}
+
 #skills h1 {
   display: inline-block;
 }
@@ -183,6 +164,13 @@ body {
   display: flex;
   flex-flow: row wrap;
   list-style-type: none;
+}
+
+.skill-list {
+  width: 60vw;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
 }
 
 .skill-card {
@@ -251,8 +239,7 @@ body {
 }
 
 #projectswrapper {
-	padding: 0px 20vw;
-	position: relative;
+  position: relative;
 }
 
 #projectswrapper:before {
@@ -282,8 +269,18 @@ body {
 }
 
 #projectswrapper h1 {
-	text-align: center;
-	padding: 75px;
+  text-align: center;
+  padding: 75px;
+}
+
+.projects-scroll-wrapper {
+  overflow: hidden;
+  padding-bottom: 100px;
+}
+
+.projectswrapper--inner {
+  padding: 0px 20vw;
+  width: 60vw;
 }
 
 #projects {
@@ -294,9 +291,11 @@ body {
 }
 
 #projects .project {
-  height: 250px;
+  height: 275px;
   width: 275px;
   position: relative;
+  cursor: pointer;
+  margin: 30px;
 }
 #projects a .project {
   color: black;
@@ -344,6 +343,15 @@ body {
   bottom: 15px;
   background-size: cover;
   background-position: top center;
+}
+
+#project {
+  width: 60vw;
+}
+
+#project h1 {
+  text-align: left;
+  padding: unset;
 }
 
 #contact {
@@ -458,6 +466,30 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
+}
+
+.carousel__container {
+  width: 100vw;
+  overflow: hidden;
+}
+.carousel {
+  display: flex;
+  transition: all 0.5s;
+}
+.carousel.shifted {
+  transform: translateX(-100vw);
+}
+.carousel__page {
+  text-align: left;
+  align-self: center;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+
+  flex-grow: 1;
+  flex-shrink: 0;
+  width: 100%;
 }
 
 /*** MINI GAME ***/
@@ -597,6 +629,24 @@ body {
   }
   100% {
     background-position: 70px -70px;
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100vw);
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
 

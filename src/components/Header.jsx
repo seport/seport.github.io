@@ -1,15 +1,6 @@
 import React from "react";
-// import ScrollSpy from 'react-scrollspy-navigation';
 import useIsVisible from "../hooks/useIsVisible";
 import { heroRef } from "../pages/Hero";
-
-/******  HANDLE NAV ********/
-
-const handleNav = () => {
-  
-}
-
-/************************* */
 
 const Header = () => {
   const heroVisible = useIsVisible(heroRef);
@@ -38,9 +29,7 @@ const Header = () => {
       </ul>
       <a href="#about">About</a>
       {` / `}
-      <a href="#skills" onClick={handleNav}>
-        Skills
-      </a>
+      <a href="#skills">Skills</a>
       {` / `}
       <a href="#blogs">Blogs</a>
       {` / `}

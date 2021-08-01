@@ -1,71 +1,38 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import useWindowLocation from "../hooks/useWindowLocation";
 import Card from "../components/Card";
 import RecommendedReading from "../components/RecommendedReading";
 import { handleNav } from "../helpers/navHelpers";
-
-const SkillCard = ({ skill, skillId, sprout }) => (
-  <div className="skill-card__container" onClick={() => handleNav(`/?skill=${skillId}#skills`)}>
-    <Card height="200px" width="50px">
-      <div className="skill-card">
-        {sprout && <div className="skill-card__sprout"></div>}
-        {skill}
-      </div>
-    </Card>
-  </div>
-);
+import SkillList from "../components/SkillList";
+import Carousel from "../components/Carousel";
+import CarouselPage from "../components/CarouselPage";
 
 const Skills = () => {
   const location = useWindowLocation();
 
   return (
     <div id="skills">
-      <div>
-        <div class={`skillscontent ${location.search.skill ? "hidden" : ""}`}>
-          <h1>
-            Technology is neat.
-            <br />
-            Here's some of my favorites.
-          </h1>
-          <ul>
-            <li>
-              <SkillCard skill="React" skillId="react" />
-            </li>
-            <li>
-              <SkillCard skill="Redux" skillId="redux" />
-            </li>
-            <li>
-              <SkillCard skill="Node.js" skillId="node" />
-            </li>
-            <li>
-              <SkillCard skill="Typescript" skillId="ts" sprout={true} />
-            </li>
-            <li>
-              <SkillCard skill="Ruby/Rails" skillId="rails" />
-            </li>
-            <li>
-              <SkillCard skill="Elixir" skillId="elixir" sprout={true} />
-            </li>
-            <li>
-              <SkillCard skill="Cypress" skillId="cypress" />
-            </li>
-          </ul>
-        </div>
-        <div class={`skillscontent ${!location.search.skill ? "hidden" : ""}`}>
+      <Carousel isShifted={location.search.skill}>
+        <CarouselPage>
+          <SkillList />
+        </CarouselPage>
+        <CarouselPage>
           <Card width="60vw">
-            <a
-              href="/"
-              onClick={(e) => {
-                e.preventDefault();
-                handleNav("/#skills")
-              }}
-            >
-              x
-            </a>
+            <div style={{width: '100%'}}>
+              <a
+                href="/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNav({target: "skills", query: {skill: ""}});
+                }}
+              >
+                Back to skill list
+              </a>
+            </div>
             <RecommendedReading language={location.search.skill} />
           </Card>
-        </div>
-      </div>
+        </CarouselPage>
+      </Carousel>
     </div>
   );
 };

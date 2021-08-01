@@ -9,7 +9,7 @@ const Hero = () => {
     <div id="about" ref={heroRef}>
       <div
         class="about-bg"
-        style={{ backgroundPosition: `0px ${-scrollY / 4}px` }}
+        style={{ backgroundPosition: `0px ${-scrollY / 10}px` }}
       >
         <div class="about">
           <h1>
