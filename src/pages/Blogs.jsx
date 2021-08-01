@@ -18,7 +18,7 @@ const Blogs = () => {
 
   return (
     <div id="blogs" style={{ backgroundPosition: `${scrollY}px ${-scrollY}px` }}>
-      <div>
+      <div className="blogs-inner">
         <h1>✏️</h1>
         <h1>I've written about some of them too.</h1>
         <ul>

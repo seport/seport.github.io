@@ -5,7 +5,7 @@ const Carousel = ({ isShifted, children }) => {
   const ref1 = useRef();
   const ref2 = useRef();
 
-  useEffect(() => {
+  const setHeight = () => {
     const height1 = ref1.current.offsetHeight;
     const height2 = ref2.current.offsetHeight;
     const height = isShifted ? height2 : height1;
@@ -13,6 +13,21 @@ const Carousel = ({ isShifted, children }) => {
     const container = containerRef.current;
 
     container.setAttribute("style", `height: ${height}px`);
+  };
+
+  useEffect(() => {
+    setHeight();
+
+    const images = document.querySelectorAll("#project img");
+    if (images) {
+      images.forEach((img) => {
+        if (img.complete) {
+          setHeight();
+        } else {
+          img.addEventListener("load", setHeight);
+        }
+      });
+    }
   }, [isShifted]);
 
   return (

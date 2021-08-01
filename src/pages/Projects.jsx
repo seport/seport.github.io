@@ -23,7 +23,9 @@ const Projects = () => {
             <div id="projects">
               <div
                 class="project"
-                onClick={() => handleNav({target: "projects", query: {project: 'chomp'}})}
+                onClick={() =>
+                  handleNav({ target: "projects", query: { project: "chomp" } })
+                }
               >
                 <div className="desktop">
                   <div
@@ -35,7 +37,12 @@ const Projects = () => {
               </div>
               <div
                 class="project"
-                onClick={() => handleNav({target: "projects", query: {project: 'facework'}})}
+                onClick={() =>
+                  handleNav({
+                    target: "projects",
+                    query: { project: "facework" },
+                  })
+                }
               >
                 <div className="mobile">
                   <div
@@ -51,28 +58,16 @@ const Projects = () => {
                 </div>
                 <h1>FaceWork</h1>
               </div>
-              <div
-                class="project"
-                onClick={() => handleNav({target: "projects", query: {project: 'ucha'}})}
-              >
-                <div class="desktop">
-                  <div
-                    class="screen"
-                    style={{ backgroundImage: `url(${packagelogtabImg})` }}
-                  ></div>
-                </div>
-                <h1>UCHA Package Log</h1>
-              </div>
             </div>
           </CarouselPage>
           <CarouselPage>
             <Card>
-              <div style={{width: '100%'}}>
+              <div style={{ width: "100%" }}>
                 <a
                   href="/"
                   onClick={(e) => {
                     e.preventDefault();
-                    handleNav({target: "projects", query: {project: ""}});
+                    handleNav({ target: "projects", query: { project: "" } });
                   }}
                 >
                   Back to project list

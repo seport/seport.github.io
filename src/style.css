@@ -224,8 +224,8 @@ a {
   /* animation: diagonalScroll 3s infinite linear; */
 }
 
-#blogs h1:first-child {
-  margin-top: 100px;
+#blogs .blogs-inner {
+  margin: 100px 0;
 }
 
 #blogs ul {
@@ -347,6 +347,10 @@ a {
 
 #project {
   width: 60vw;
+}
+
+#project img {
+  max-width: 100%;
 }
 
 #project h1 {
