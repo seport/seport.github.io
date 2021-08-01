@@ -45,6 +45,10 @@ a {
   display: block;
   border-top: 5px solid #fedcd2;
 }
+#nav .nav-container div {
+  display: inline;
+}
+
 #nav ul {
   margin: 0;
   padding: 0;
@@ -74,6 +78,15 @@ a {
   padding: 0;
   transition: ease-in-out 0.3s;
 }
+#nav-toggle {
+  display: none;
+}
+#nav-toggle ~ label {
+  display: none;
+}
+#nav .nav-container .nav-close {
+  display: none;
+}
 
 #about {
   height: calc(100vh - 130px);
@@ -96,6 +109,8 @@ a {
 }
 #about .about {
   align-self: center;
+  width: 100vw;
+  padding: 20vw;
 }
 #about h1 {
   font-size: 50px;
@@ -232,6 +247,7 @@ a {
   list-style-type: none;
   display: flex;
   flex-flow: column nowrap;
+  padding: 0;
 }
 
 #blogs ul li {
@@ -331,7 +347,7 @@ a {
   position: absolute;
   top: 75px;
   left: 200px;
-  z-index: 100;
+  z-index: 1;
   box-shadow: 0px 5px 20px 1px rgba(0, 0, 0, 0.25);
 }
 #projects .mobile .screen {
@@ -681,4 +697,92 @@ a {
   height: 100px;
   width: 20px;
   background-color: red;
+}
+
+@media only screen and (max-width: 600px) {
+  #about h1 {
+    font-size: 24px;
+    width: unset;
+    text-align: center;
+  }
+
+  #skills ul {
+    flex-flow: row nowrap;
+  }
+
+  .skill-list__container {
+    width: 100vw;
+    overflow: auto;
+  }
+
+  #skills .recommended-reading__container .card,
+  #projectswrapper .card {
+    border: 0;
+    box-shadow: none;
+  }
+
+  #nav-toggle ~ label {
+    display: block;
+    max-height: 50px;
+    overflow: hidden;
+    position: absolute;
+    left: 15px;
+    font-size: 48px;
+    transition: all 0.5s linear 0.25s, color 0.1s;
+  }
+  #nav-toggle:checked ~ label {
+    max-height: 0;
+    opacity: 0;
+    transition: none;
+  }
+
+  #nav .nav-close {
+    display: inline;
+    order: 1;
+    padding: 15px;
+    font-size: 24px;
+  }
+  #nav {
+    padding: 0;
+  }
+  #nav .nav-container div {
+    display: block;
+  }
+  #nav .right {
+    float: none;
+  }
+  #nav ul {
+    display: block;
+    border-top: 1px solid black;
+    padding-top: 15px;
+  }
+  #nav ul li {
+    display: block;
+    margin-right: 10px;
+  }
+  .nav-container {
+    height: 0px;
+    overflow: hidden;
+    background: white;
+    color: black;
+    display: flex;
+    flex-flow: column-reverse;
+    z-index: 10000;
+    transition: all 0.25s;
+    justify-content: flex-end;
+    opacity: 0;
+  }
+
+  #nav ul,
+  .nav-container .left {
+    padding: 15px;
+  }
+  #nav.hero-visible a {
+    color: black;
+  }
+  #nav-toggle:checked ~ .nav-container {
+    height: 100vh;
+    opacity: 1;
+    overflow: auto;
+  }
 }

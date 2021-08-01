@@ -17,20 +17,22 @@ const Skills = () => {
           <SkillList />
         </CarouselPage>
         <CarouselPage>
-          <Card width="60vw">
-            <div style={{width: '100%'}}>
-              <a
-                href="/"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNav({target: "skills", query: {skill: ""}});
-                }}
-              >
-                Back to skill list
-              </a>
-            </div>
-            <RecommendedReading language={location.search.skill} />
-          </Card>
+          <div className="recommended-reading__container">
+            <Card width="60vw">
+              <div style={{ width: "100%" }}>
+                <a
+                  href="/"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNav({ target: "skills", query: { skill: "" } });
+                  }}
+                >
+                  Back to skill list
+                </a>
+              </div>
+              <RecommendedReading language={location.search.skill} />
+            </Card>
+          </div>
         </CarouselPage>
       </Carousel>
     </div>
