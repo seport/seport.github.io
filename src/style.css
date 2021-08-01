@@ -503,7 +503,7 @@ a {
 }
 
 .carousel__container {
-  width: 100vw;
+  width: 99vw;
   overflow: hidden;
 }
 .carousel {
