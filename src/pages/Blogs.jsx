@@ -29,17 +29,6 @@ const Blogs = () => {
               maxLine={2}
               minLine={1}
               url="https://blog.carbonfive.com/redux-minus-redux-with-react-contexts/"
-              header="React + Webpack + Babble from the ground up"
-              description=""
-            />
-          </li>
-          <li>
-            <ReactTinyLink
-              cardSize="small"
-              showGraphic={false}
-              maxLine={2}
-              minLine={1}
-              url="https://blog.carbonfive.com/redux-minus-redux-with-react-contexts/"
               header="Redux Minus Redux With React Contexts"
               description="When it comes to state management in the front end, Redux has long reigned supreme. With the development of Contexts, we’re now seeing the beginning of an alternative which is brand new, but also capable of being completely familiar for long-time Redux fans. Using React Contexts with Redux-like paradigms is a good way to embrace"
             />

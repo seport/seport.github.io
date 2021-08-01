@@ -64,6 +64,7 @@ const Contact = () => {
           <iframe hidden id="hidden_iframe" name="hidden_iframe"></iframe>
         </div>
       </div>
+      <div className="contactbottom">I made this! Ⓒ 2021</div>
     </div>
   );
 };

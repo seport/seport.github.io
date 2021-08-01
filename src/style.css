@@ -180,6 +180,20 @@ a {
   flex-flow: row wrap;
   list-style-type: none;
 }
+#skills .recommended-reading__container {
+  max-width: 60vw;
+}
+#skills .recommended-reading__container ul {
+  display: block;
+}
+#skills .recommended-reading__container ul li{
+  list-style-type: emoji-list;
+}
+@counter-style emoji-list {
+  system: cyclic;
+  symbols: 🌱 🌸 ✨ 💖 ☁️ 🐻 🔮 🐨 🌻 ⭐;
+  suffix: " ";
+}
 
 .skill-list {
   width: 60vw;

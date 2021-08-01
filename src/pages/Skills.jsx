@@ -18,7 +18,7 @@ const Skills = () => {
         </CarouselPage>
         <CarouselPage>
           <div className="recommended-reading__container">
-            <Card width="60vw">
+            <Card width="100%">
               <div style={{ width: "100%" }}>
                 <a
                   href="/"

@@ -14,9 +14,6 @@ const SkillList = () => (
           <SkillCard skill="React" skillId="react" />
         </li>
         <li>
-          <SkillCard skill="Redux" skillId="redux" />
-        </li>
-        <li>
           <SkillCard skill="Node.js" skillId="node" />
         </li>
         <li>
