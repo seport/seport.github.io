@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/seport/seport.github.io#readme",
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "babel-preset-react-app": "^3.1.2",
     "prettier": "^2.3.2",
     "qs-to-json": "^0.1.9",
