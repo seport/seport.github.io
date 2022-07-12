@@ -22,6 +22,17 @@ const Blogs = () => {
         <h1>✏️</h1>
         <h1>I've written about some of them too.</h1>
         <ul>
+        <li>
+            <ReactTinyLink
+              cardSize="small"
+              showGraphic={false}
+              maxLine={2}
+              minLine={1}
+              url="https://developers.soundcloud.com/blog/pr-templates-for-effective-pull-requests/"
+              header="PR Templates for Effective Pull Requests"
+              description="Empty pull request descriptions slow down teams, but PR templates are a quick and easy remedy. By streamlining the PR writing process into a series of fill-in-the-blank steps, a PR becomes a valuable asset for knowledge sharing across teams that will outlive its authors."
+            />
+          </li>
           <li>
             <ReactTinyLink
               cardSize="small"
