@@ -8,15 +8,15 @@ const Hero = () => {
   return (
     <div id="about" ref={heroRef}>
       <div
-        class="about-bg"
+        className="about-bg"
         style={{ backgroundPosition: `0px ${-scrollY / 10}px` }}
       >
-        <div class="about">
+        <div className="about">
           <h1>
             Hi, I'm Sarah. 👋 <br /> I make websites and things.
           </h1>
-          {/* <div class="game">
-        <div class="howtoplay">
+          {/* <div className="game">
+        <div className="howtoplay">
             <p>
                 Press SPACE to start
             </p>
@@ -27,26 +27,26 @@ const Hero = () => {
                 Collect the coins
             </p>
         </div>
-        <div class="gameover">
-            <p class="endmessage">
+        <div className="gameover">
+            <p className="endmessage">
             </p>
-            <p class="finalscore">
+            <p className="finalscore">
             </p>
             <p>
                 Press SPACE to try again
             </p>
         </div>
-        <div class="gameinfo">
-            <div>Score: <span class="score"></span></div>
-            <div>Lives: <span class="lives"></span></div>
+        <div className="gameinfo">
+            <div>Score: <span className="score"></span></div>
+            <div>Lives: <span className="lives"></span></div>
         </div>
-        <div class="player mobi">
-            <div class="screen"></div>
+        <div className="player mobi">
+            <div className="screen"></div>
             </div>
-        <div class="scenery">
+        <div className="scenery">
         </div>
     </div>
-    <p class="startbutton">Press START to play</p> */}
+    <p className="startbutton">Press START to play</p> */}
         </div>
       </div>
     </div>

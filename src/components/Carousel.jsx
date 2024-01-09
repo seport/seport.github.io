@@ -31,8 +31,8 @@ const Carousel = ({ isShifted, children }) => {
   }, [isShifted]);
 
   return (
-    <div class="carousel__container">
-      <div class={`carousel ${isShifted ? "shifted" : ""}`} ref={containerRef}>
+    <div className="carousel__container">
+      <div className={`carousel ${isShifted ? "shifted" : ""}`} ref={containerRef}>
         {React.cloneElement(children[0], {
           reference: ref1,
         })}

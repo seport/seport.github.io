@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
-import ReactMarkdown from "react-markdown";
+import Markdown from "markdown-to-jsx";
 import projects from "../projects";
 
 const Project = ({project}) => {
+  if(!project) {
+    return <></>
+  }
   return (
     <div id="project">
-      <ReactMarkdown>{projects[project]}</ReactMarkdown>
+      <Markdown>{projects[project]}</Markdown>
     </div>
   );
 };
