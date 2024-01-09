@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -10,6 +11,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Sarah Port',
     }),
+    new CopyWebpackPlugin({
+      patterns: [{from: './src/archive', to: '.'}]
+    })
   ],
   devtool: 'inline-source-map',
   devServer: {

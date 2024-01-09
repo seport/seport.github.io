@@ -22,6 +22,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "babel-preset-react-app": "^3.1.2",
+    "copy-webpack-plugin": "^11.0.0",
     "prettier": "^2.3.2",
     "qs-to-json": "^0.1.9",
     "react": "^17.0.2",
