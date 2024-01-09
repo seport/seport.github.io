@@ -1,7 +1,6 @@
 import React from "react";
 import Card from "../components/Card";
 import useScroll from "../hooks/useScroll";
-import { ReactTinyLink } from "react-tiny-link";
 
 const BlogCard = ({ title, preview, source }) => (
   <div>
@@ -22,7 +21,7 @@ const Blogs = () => {
         <h1>✏️</h1>
         <h1>I've written about some of them too.</h1>
         <ul>
-        <li>
+        {/* <li>
             <ReactTinyLink
               cardSize="small"
               showGraphic={false}
@@ -65,7 +64,7 @@ const Blogs = () => {
               header="Writing ZSH Themes: A Quickref"
               description="Customizing your terminal is a fun way to streamline and personalize your digital workspace. People are more productive when using tools they enjoy and tend to value things they made themselves at a premium, but, as with all technical adventures, it can also be a little tedious to track down all the relevant documentation. This"
             />
-          </li>
+          </li> */}
         </ul>
       </div>
     </div>
