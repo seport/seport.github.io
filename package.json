@@ -20,16 +20,12 @@
   },
   "homepage": "https://github.com/seport/seport.github.io#readme",
   "dependencies": {
-    "axios": "^0.21.1",
-    "babel-preset-react-app": "^3.1.2",
     "copy-webpack-plugin": "^11.0.0",
     "prettier": "^2.3.2",
     "qs-to-json": "^0.1.9",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-markdown": "^6.0.3",
-    "react-parallax": "^3.3.0",
-    "react-scrollspy-navigation": "^1.0.2",
     "react-textarea-autosize": "^8.3.3",
     "react-tiny-link": "^3.6.1"
   },
