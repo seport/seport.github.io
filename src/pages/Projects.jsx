@@ -16,27 +16,27 @@ const Projects = () => {
 
   return (
     <div id="projectswrapper">
-      <div class="projects-scroll-wrapper">
+      <div className="projects-scroll-wrapper">
         <Carousel isShifted={location.search.project}>
           <CarouselPage>
             <h1>Projects</h1>
             <div id="projects">
               <div
-                class="project"
+                className="project"
                 onClick={() =>
                   handleNav({ target: "projects", query: { project: "chomp" } })
                 }
               >
                 <div className="desktop">
                   <div
-                    class="screen"
+                    className="screen"
                     style={{ backgroundImage: `url(${crocodentistImg})` }}
                   ></div>
                 </div>
                 <h1>Chomp</h1>
               </div>
               <div
-                class="project"
+                className="project"
                 onClick={() =>
                   handleNav({
                     target: "projects",
@@ -50,9 +50,9 @@ const Projects = () => {
                     style={{ backgroundImage: `url(${faceworkMobileImg})` }}
                   ></div>
                 </div>
-                <div class="desktop">
+                <div className="desktop">
                   <div
-                    class="screen"
+                    className="screen"
                     style={{ backgroundImage: `url(${faceworkDesktopImg})` }}
                   ></div>
                 </div>

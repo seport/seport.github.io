@@ -10,9 +10,9 @@ const Contact = () => {
     const [formSent, setFormSent] = useState(false);
     return (
     <div id="contact">
-      <div class="contactcontainer">
+      <div className="contactcontainer">
         <h1>Want to work on something?</h1>
-        <div class="socialicons">
+        <div className="socialicons">
           <a href="https://github.com/seport" target="_blank">
             <img src={githubImg} />
           </a>
@@ -23,8 +23,8 @@ const Contact = () => {
             <img src={linkedinImg} />
           </a>
         </div>
-        <div class="contact-container">
-          <div class="contact">
+        <div className="contact-container">
+          <div className="contact">
             <a
               className={formOpen ? "hidden" : ""}
               href=" + link + "

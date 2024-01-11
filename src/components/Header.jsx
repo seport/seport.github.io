@@ -13,10 +13,10 @@ const Header = () => {
   return (
     <div id="nav" className={heroVisible ? "hero-visible" : ""}>
       <input type="checkbox" id="nav-toggle" ref={toggleRef} />
-      <label for="nav-toggle">≡</label>
+      <label htmlFor="nav-toggle">≡</label>
       <div className="nav-container" onClick={closeNav}>
         <div className="nav-close">×</div>
-        <ul class="right">
+        <ul className="right">
           <li>
             <a href="https://twitter.com/seport_">Twitter</a>
           </li>
@@ -36,7 +36,7 @@ const Header = () => {
             </a>
           </li>
         </ul>
-        <div class="left">
+        <div className="left">
           <div>
             <a href="#about">About</a>
             {` / `}
