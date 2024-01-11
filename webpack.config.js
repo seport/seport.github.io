@@ -12,7 +12,7 @@ module.exports = {
       title: 'Sarah Port',
     }),
     new CopyWebpackPlugin({
-      patterns: [{ from: './src/archive', to: '.' }]
+      patterns: [{ from: './archive', to: '.' }]
     })
   ],
   devtool: 'inline-source-map',
