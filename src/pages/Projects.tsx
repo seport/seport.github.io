@@ -7,7 +7,6 @@ import Clients from "../components/Clients";
 import crocodentistImg from "../crocodentist.gif";
 import faceworkMobileImg from "../facework-mobile.png";
 import faceworkDesktopImg from "../facework-desktop.png";
-import packagelogtabImg from "../packagelogtab.png";
 import Project from "../components/Project";
 import Carousel from "../components/Carousel";
 import CarouselPage from "../components/CarouselPage";

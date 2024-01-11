@@ -4,7 +4,7 @@ import { heroRef } from "../pages/Hero";
 
 const Header = () => {
   const heroVisible = useIsVisible(heroRef);
-  const toggleRef = useRef();
+  const toggleRef = useRef(null);
 
   const closeNav = () => {
     toggleRef.current.checked = false;

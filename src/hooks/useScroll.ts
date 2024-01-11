@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 const useScroll = () => {
   const [scrollY, setScrollY] = useState(0);
 
-  const throttle = (fn) => {
+  const throttle = (fn: () => void) => {
     var time = Date.now();
     return function () {
       if (time + 10 - Date.now() < 0) {

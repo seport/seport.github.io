@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 import useScroll from './useScroll';
 
-const useIsVisible = (ref) => {
+const useIsVisible = (ref: React.RefObject<HTMLElement>) => {
     const [isVisible, setIsVisible] = useState(false);
     const scrollY = useScroll();
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Markdown from "markdown-to-jsx";
 import projects from "../projects";
 
-const Project = ({project}) => {
+const Project = ({project}: {project: keyof typeof projects}) => {
   if(!project) {
     return <></>
   }

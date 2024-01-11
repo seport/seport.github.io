@@ -1,6 +1,6 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 
-const Card = ({ height, width, children }) => (
+const Card = ({ height, width, children }: PropsWithChildren<{height?: string, width?: string}>) => (
   <div
     className="card"
     style={{

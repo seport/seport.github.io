@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import queryStringToJSON from "qs-to-json";
 
-const prasedLocation = (window) => {
+const prasedLocation = (window: Window & typeof globalThis) => {
   const jsonSearch = queryStringToJSON(window.location.search.slice(1));
   return { hash: window.location.hash, search: jsonSearch }
 }

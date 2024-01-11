@@ -12,7 +12,7 @@ module.exports = {
       title: 'Sarah Port',
     }),
     new CopyWebpackPlugin({
-      patterns: [{from: './src/archive', to: '.'}]
+      patterns: [{ from: './src/archive', to: '.' }]
     })
   ],
   devtool: 'inline-source-map',
@@ -37,11 +37,16 @@ module.exports = {
         use: {
           loader: 'babel-loader',
         }
-      }
+      },
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
     ]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['', '.js', '.jsx', '.ts', '.tsx'],
   },
   output: {
     filename: '[name].bundle.js',

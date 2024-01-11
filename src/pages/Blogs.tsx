@@ -1,16 +1,5 @@
 import React from "react";
-import Card from "../components/Card";
 import useScroll from "../hooks/useScroll";
-
-const BlogCard = ({ title, preview, source }) => (
-  <div>
-    <Card height="50px" width="500px">
-      <div className="blog-card__title">{title}</div>
-      {preview && <div className="blog-card__preview">{preview}</div>}
-      {source && <div className="blog-card__source">Source: {source}</div>}
-    </Card>
-  </div>
-);
 
 const Blogs = () => {
   const scrollY = useScroll();
