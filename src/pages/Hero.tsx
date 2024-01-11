@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import useScroll from "../hooks/useScroll";
+import useScroll from "@/hooks/useScroll";
 
 export const heroRef = React.createRef<HTMLDivElement>();
 

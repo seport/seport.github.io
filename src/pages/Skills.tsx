@@ -1,11 +1,11 @@
 import React, { useEffect, useRef } from "react";
-import useWindowLocation from "../hooks/useWindowLocation";
-import Card from "../components/Card";
-import RecommendedReading from "../components/RecommendedReading";
-import { handleNav } from "../helpers/navHelpers";
-import SkillList from "../components/SkillList";
-import Carousel from "../components/Carousel";
-import CarouselPage from "../components/CarouselPage";
+import useWindowLocation from "@/hooks/useWindowLocation";
+import Card from "@/components/Card";
+import RecommendedReading from "@/components/RecommendedReading";
+import { handleNav } from "@/helpers/navHelpers";
+import SkillList from "@/components/SkillList";
+import Carousel from "@/components/Carousel";
+import CarouselPage from "@/components/CarouselPage";
 
 const Skills = () => {
   const location = useWindowLocation();

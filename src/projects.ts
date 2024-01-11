@@ -1,6 +1,6 @@
-import chompImg from "./crocodentist.gif";
-import chompDemo from "./crocodentist-demo.gif";
-import faceworkBanner from "./faceworkbanner.jpeg";
+import chompImg from "@/public/crocodentist.gif";
+import chompDemo from "@/public/crocodentist-demo.gif";
+import faceworkBanner from "@/public/faceworkbanner.jpeg";
 
 export default {
   chomp: `

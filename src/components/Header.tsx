@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
-import useIsVisible from "../hooks/useIsVisible";
-import { heroRef } from "../pages/Hero";
+import useIsVisible from "@/hooks/useIsVisible";
+import { heroRef } from "@/pages/Hero";
 
 const Header = () => {
   const heroVisible = useIsVisible(heroRef);

@@ -1,6 +1,6 @@
 import React from "react";
 import Markdown from "markdown-to-jsx";
-import recommendedReading from "../recommendedReading";
+import recommendedReading from "@/recommendedReading";
 
 const RecommendedReading = ({ language }: { language: keyof typeof recommendedReading }) => {
   return (

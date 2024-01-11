@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import TextareaAutosize from "react-textarea-autosize";
 
-import githubImg from "../github.png";
-import jsfiddleImg from "../jsfiddle.png";
-import linkedinImg from "../linkedin.png";
+import githubImg from "@/public/github.png";
+import jsfiddleImg from "@/public/jsfiddle.png";
+import linkedinImg from "@/public/linkedin.png";
 
 const Contact = () => {
     const [formOpen, setFormOpen] = useState(false);

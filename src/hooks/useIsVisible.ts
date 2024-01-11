@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react'
-import useScroll from './useScroll';
+import useScroll from '@/hooks/useScroll';
 
 const useIsVisible = (ref: React.RefObject<HTMLElement>) => {
     const [isVisible, setIsVisible] = useState(false);

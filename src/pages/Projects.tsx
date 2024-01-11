@@ -1,15 +1,15 @@
 import React from "react";
-import useWindowLocation from "../hooks/useWindowLocation";
-import { handleNav } from "../helpers/navHelpers";
+import useWindowLocation from "@/hooks/useWindowLocation";
+import { handleNav } from "@/helpers/navHelpers";
 
-import Card from "../components/Card";
-import Clients from "../components/Clients";
-import crocodentistImg from "../crocodentist.gif";
-import faceworkMobileImg from "../facework-mobile.png";
-import faceworkDesktopImg from "../facework-desktop.png";
-import Project from "../components/Project";
-import Carousel from "../components/Carousel";
-import CarouselPage from "../components/CarouselPage";
+import Card from "@/components/Card";
+import Clients from "@/components/Clients";
+import crocodentistImg from "@/public/crocodentist.gif";
+import faceworkMobileImg from "@/public/facework-mobile.png";
+import faceworkDesktopImg from "@/public/facework-desktop.png";
+import Project from "@/components/Project";
+import Carousel from "@/components/Carousel";
+import CarouselPage from "@/components/CarouselPage";
 const Projects = () => {
   const location = useWindowLocation();
 

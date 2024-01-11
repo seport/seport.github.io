@@ -1,10 +1,10 @@
 import React from 'react';
-import forgeLogo from '../forge-logo.png';
-import taskrabbitLogo from '../taskrabbit-logo.png';
-import compassLogo from '../compass-logo.png';
-import FRALogo from '../FRA-logo.png';
-import rottentomatoesLogo from '../rottentomatoes-logo.png';
-import h4laLogo from '../h4la-logo.png';
+import forgeLogo from '@/public/forge-logo.png'
+import taskrabbitLogo from '@/public/taskrabbit-logo.png';
+import compassLogo from '@/public/compass-logo.png';
+import FRALogo from '@/public/FRA-logo.png';
+import rottentomatoesLogo from '@/public/rottentomatoes-logo.png';
+import h4laLogo from '@/public/h4la-logo.png';
 
 const Clients = () => <div id="clients">
     <img src={forgeLogo} className="logo" /> <img src={taskrabbitLogo} className="logo" /> <img src={compassLogo} className="logo" />

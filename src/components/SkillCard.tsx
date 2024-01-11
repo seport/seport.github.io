@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "./Card";
-import { handleNav } from "../helpers/navHelpers";
+import { handleNav } from "@/helpers/navHelpers";
 
 const SkillCard = ({ skill, skillId, sprout }: {skill: string, skillId: string, sprout?: boolean}) => (
   <div
