@@ -1,23 +1,17 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Header from "@/components/Header";
 import Hero from "@/pages/Hero";
 import Skills from "@/pages/Skills";
 import Projects from "@/pages/Projects";
 import Contact from "@/pages/Contact";
 import Blogs from "@/pages/Blogs";
+import { useBackground } from "@/contexts/backgroundContext";
+import { Providers } from "@/providers";
 
 const App = () => {
-//   useEffect(() => {
-//     const activeAnchor = window.location.hash;
-//     console.log(activeAnchor)
-//     if (activeAnchor) {
-//       const activeElement = document.getElementById(activeAnchor.slice(1));
-//       const scrollHeight = activeElement.offsetTop;
-//       window.scrollTo(0, scrollHeight);
-//     }
-//   });
+  const backgroundColor = useBackground().color
   return (
-    <div>
+    <div style={{ backgroundColor}}>
       <Hero />
       <Header />
       <Skills />
@@ -28,4 +22,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default () => <Providers><App /></Providers>;

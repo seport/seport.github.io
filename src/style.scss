@@ -1,11 +1,72 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@500&display=swap");
 
+/* Variables */
+// colors
+$light-pink: #f2e6ea;
+$dark-pink: #e3abc0;
+$boba-brown: #674c47;
+$white: #ffffff;
+$black: #2a3439;
+$grey: #708090;
+$light-grey: #ccd1d7;
+
+// fonts
+$h1-font-family: "Fredoka", sans-serif;
+$h1-color: $black;
+$h1-font-weight: 500;
+$h1-size-mobile: 24px;
+$h1-size-desktop: 64px;
+
+// breakpoints
+$mobile: 660;
+
+/* Mixins */
+@mixin max-width($breakpoint) {
+  @media (max-width: ($breakpoint+"px")) {
+    @content;
+  }
+}
+
+@mixin min-width($breakpoint) {
+  @media (min-width: ($breakpoint+1+"px")) {
+    @content;
+  }
+}
+
+/* Home */
+#about {
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#about h1 {
+  font-family: $h1-font-family;
+  font-weight: $h1-font-weight;
+  color: $h1-color;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+  @include max-width($mobile) {
+    font-size: $h1-size-mobile;
+  }
+  @include min-width($mobile) {
+    font-size: $h1-size-desktop;
+  }
+}
+
+/* OLD STYLES */
 body,
 html {
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
 }
+
 body {
   font-family: "Nunito", sans-serif;
 }
@@ -24,6 +85,7 @@ a {
   padding: 5px 15px;
   padding-left: 20px;
 }
+
 #nav a {
   text-decoration: none;
   color: black;
@@ -45,6 +107,7 @@ a {
   display: block;
   border-top: 5px solid #fedcd2;
 }
+
 #nav .nav-container div {
   display: inline;
 }
@@ -54,23 +117,29 @@ a {
   padding: 0;
   display: inline-block;
 }
+
 #nav ul li {
   display: inline-block;
   margin-right: 10px;
 }
+
 #nav ul li:hover {
   cursor: pointer;
 }
+
 #nav ul li:after {
   margin-left: 10px;
   content: "/";
 }
+
 #nav ul li:last-child:after {
   content: "";
 }
+
 #nav .right {
   float: right;
 }
+
 #nav hr {
   border: 0;
   border-top: 5px solid #fedcd2;
@@ -78,48 +147,17 @@ a {
   padding: 0;
   transition: ease-in-out 0.3s;
 }
+
 #nav-toggle {
   display: none;
 }
+
 #nav-toggle ~ label {
   display: none;
 }
+
 #nav .nav-container .nav-close {
   display: none;
-}
-
-#about {
-  height: calc(100vh - 130px);
-  color: white;
-  position: relative;
-  overflow: hidden;
-}
-#about .about-bg {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  padding-top: 20px;
-  width: 100%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
-    url(public/twolaptops-1.jpeg);
-  background-size: cover;
-  background-blend-mode: multiply;
-  transform: scale(1.5);
-  transition: all 0.25s;
-}
-#about .about {
-  align-self: center;
-  width: 100vw;
-  padding: 20vw;
-}
-#about h1 {
-  font-size: 50px;
-  font-weight: 300;
-  width: 470px;
-  margin: 0;
-  padding: 0;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 #clients {
@@ -137,36 +175,39 @@ a {
   text-align: center;
   color: lightgrey;
 }
+
 .startbutton:hover {
   color: grey;
   cursor: pointer;
 }
 
-#skills:before {
-  content: "";
-  height: 100px;
-  width: 100%;
-  position: absolute;
-  top: -100px;
-  left: 0;
-  right: 0;
-  background: radial-gradient(circle at 50% 100%, white 50%, transparent 51%);
-  background-size: 100px 100px;
-  background-repeat: repeat-x;
-}
-#skills:after {
-  content: "";
-  height: 100px;
-  width: 100%;
-  position: absolute;
-  bottom: -100px;
-  left: 0;
-  right: 0;
-  background: radial-gradient(circle at 50% 0%, white 50%, transparent 51%);
-  background-size: 100px 100px;
-  background-repeat: repeat-x;
-  z-index: 1;
-}
+/* #skills:before {
+    content: "";
+    height: 100px;
+    width: 100%;
+    position: absolute;
+    top: -100px;
+    left: 0;
+    right: 0;
+    background: radial-gradient(circle at 50% 100%, white 50%, transparent 51%);
+    background-size: 100px 100px;
+    background-repeat: repeat-x;
+  }
+
+  #skills:after {
+    content: "";
+    height: 100px;
+    width: 100%;
+    position: absolute;
+    bottom: -100px;
+    left: 0;
+    right: 0;
+    background: radial-gradient(circle at 50% 0%, white 50%, transparent 51%);
+    background-size: 100px 100px;
+    background-repeat: repeat-x;
+    z-index: 1;
+  } */
+
 #skills {
   padding: 100px 0;
   position: relative;
@@ -175,20 +216,25 @@ a {
 #skills h1 {
   display: inline-block;
 }
+
 #skills ul {
   display: flex;
   flex-flow: row wrap;
   list-style-type: none;
 }
+
 #skills .recommended-reading__container {
   max-width: 60vw;
 }
+
 #skills .recommended-reading__container ul {
   display: block;
 }
-#skills .recommended-reading__container ul li{
+
+#skills .recommended-reading__container ul li {
   list-style-type: emoji-list;
 }
+
 @counter-style emoji-list {
   system: cyclic;
   symbols: 🌱 🌸 ✨ 💖 ☁️ 🐻 🔮 🐨 🌻 ⭐;
@@ -214,11 +260,13 @@ a {
   top: 15px;
   right: 15px;
 }
+
 .skill-card__container {
   height: 250px;
   width: 200px;
   transition: all 0.5s;
 }
+
 .skill-card__container:hover {
   transform: scale(1.1);
   cursor: pointer;
@@ -241,13 +289,7 @@ a {
       rgba(255, 255, 255, 0) 2px,
       rgba(255, 255, 255, 0) 70px
     ),
-    repeating-linear-gradient(
-      to bottom,
-      white 0px,
-      white 2px,
-      rgba(255, 255, 255, 0) 2px,
-      rgba(255, 255, 255, 0) 70px
-    ),
+    repeating-linear-gradient(to bottom, white 0px, white 2px, rgba(255, 255, 255, 0) 2px, rgba(255, 255, 255, 0) 70px),
     repeating-linear-gradient(#fef4f1 0, #fef4f1 100px);
   background-size: 70px 70px;
   /* animation: diagonalScroll 3s infinite linear; */
@@ -272,31 +314,32 @@ a {
   position: relative;
 }
 
-#projectswrapper:before {
-  content: "";
-  height: 100px;
-  width: 100%;
-  position: absolute;
-  top: -100px;
-  left: 0;
-  right: 0;
-  background: radial-gradient(circle at 50% 100%, white 50%, transparent 51%);
-  background-size: 100px 100px;
-  background-repeat: repeat-x;
-}
-#projectswrapper:after {
-  content: "";
-  height: 100px;
-  width: 100%;
-  position: absolute;
-  bottom: -100px;
-  left: 0;
-  right: 0;
-  background: radial-gradient(circle at 50% 0%, white 50%, transparent 51%);
-  background-size: 100px 100px;
-  background-repeat: repeat-x;
-  z-index: 1;
-}
+/* #projectswrapper:before {
+    content: "";
+    height: 100px;
+    width: 100%;
+    position: absolute;
+    top: -100px;
+    left: 0;
+    right: 0;
+    background: radial-gradient(circle at 50% 100%, white 50%, transparent 51%);
+    background-size: 100px 100px;
+    background-repeat: repeat-x;
+  } */
+
+/* #projectswrapper:after {
+    content: "";
+    height: 100px;
+    width: 100%;
+    position: absolute;
+    bottom: -100px;
+    left: 0;
+    right: 0;
+    background: radial-gradient(circle at 50% 0%, white 50%, transparent 51%);
+    background-size: 100px 100px;
+    background-repeat: repeat-x;
+    z-index: 1;
+  } */
 
 #projectswrapper h1 {
   text-align: center;
@@ -327,13 +370,16 @@ a {
   cursor: pointer;
   margin: 30px;
 }
+
 #projects a .project {
   color: black;
 }
+
 #projects .project h1 {
   width: 225px;
   padding: inherit;
 }
+
 #projects .desktop {
   height: 155px;
   width: 225px;
@@ -343,6 +389,7 @@ a {
   position: relative;
   box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, 0.25);
 }
+
 #projects .desktop .screen {
   background-color: white;
   position: absolute;
@@ -353,6 +400,7 @@ a {
   background-size: cover;
   background-position: top center;
 }
+
 #projects .mobile {
   height: 125px;
   width: 65px;
@@ -364,6 +412,7 @@ a {
   z-index: 1;
   box-shadow: 0px 5px 20px 1px rgba(0, 0, 0, 0.25);
 }
+
 #projects .mobile .screen {
   background-color: white;
   position: absolute;
@@ -397,16 +446,20 @@ a {
   position: relative;
   justify-content: center;
 }
+
 #contact .contactcontainer {
   align-self: center;
 }
+
 #contact .socialicons img {
   height: 50px;
   margin-left: 10px;
 }
+
 #contact .contact-container {
   min-height: 300px;
 }
+
 #contact .contact {
   display: inline-block;
   border: 2px solid #fedcd2;
@@ -415,6 +468,7 @@ a {
   font-weight: bold;
   text-align: left;
 }
+
 #contact .contact a {
   text-decoration: none;
   color: #fedcd2;
@@ -442,7 +496,9 @@ a {
 }
 
 #contact form {
-  transition: all 1s, opacity 1s linear 0.2s;
+  transition:
+    all 1s,
+    opacity 1s linear 0.2s;
   max-height: 1000px;
   max-width: 1000px;
 }
@@ -454,7 +510,7 @@ a {
   font-size: 18px;
   font-family: Arial, Helvetica, sans-serif;
   border-radius: 5px;
-  width: 100%
+  width: 100%;
 }
 
 #contact form label {
@@ -473,8 +529,11 @@ a {
 }
 
 #contact form.hidden {
-  transition: all 1s linear 0.1s, opacity 0.5s;
+  transition:
+    all 1s linear 0.1s,
+    opacity 0.5s;
 }
+
 #contact .hidden {
   opacity: 0;
   max-height: 0 !important;
@@ -507,13 +566,16 @@ a {
   width: 99vw;
   overflow: hidden;
 }
+
 .carousel {
   display: flex;
   transition: all 0.5s;
 }
+
 .carousel.shifted {
   transform: translateX(-100vw);
 }
+
 .carousel__page {
   text-align: left;
   align-self: center;
@@ -539,16 +601,19 @@ a {
   overflow: hidden;
   transition: linear 0.2s;
 }
+
 .howtoplay {
   position: absolute;
   font-family: monospace;
   display: none;
 }
+
 .gameover {
   position: absolute;
   display: none;
   font-family: monospace;
 }
+
 .gameinfo {
   position: absolute;
   right: 10px;
@@ -562,16 +627,19 @@ a {
   left: 40px;
   background-color: lightgrey;
 }
+
 .screen {
   background-color: white;
   position: absolute;
 }
+
 .mobi {
   transition: linear 0.2s;
   height: 100px;
   width: 60px;
   border-radius: 10px;
 }
+
 .mobi:before {
   content: "";
   background-color: white;
@@ -582,6 +650,7 @@ a {
   top: 6px;
   left: calc(50% - 10px);
 }
+
 .mobi:after {
   content: "";
   background-color: white;
@@ -592,6 +661,7 @@ a {
   left: calc(50% - 5px);
   top: 88px;
 }
+
 .mobi .screen {
   transition: linear 0.2s;
   background-color: white;
@@ -607,6 +677,7 @@ a {
   width: 300px;
   border-radius: 10px;
 }
+
 .desk:before {
   content: "";
   background-image: url("http://i.imgur.com/Y4iD7dX.png");
@@ -619,6 +690,7 @@ a {
   top: 7px;
   left: 7px;
 }
+
 .desk .screen {
   transition: linear 0.2s;
   background-color: white;
@@ -632,12 +704,15 @@ a {
   0% {
     transform: rtatez(0deg) translate(0px, 0px);
   }
+
   33% {
     transform: rotatez(-5deg) translate(0px, -10px);
   }
+
   66% {
     transform: rotatez(5deg) translate(0px, 0px);
   }
+
   100% {
     transform: rotatez(0deg);
   }
@@ -647,12 +722,15 @@ a {
   0% {
     transform: rtatez(0deg) translate(0px, 0px);
   }
+
   33% {
     transform: rotatez(-2deg) translate(0px, -15px);
   }
+
   66% {
     transform: rotatez(2deg) translate(0px, 0px);
   }
+
   100% {
     transform: rotatez(0deg);
   }
@@ -662,6 +740,7 @@ a {
   0% {
     background-position: 0px 0px;
   }
+
   100% {
     background-position: 70px -70px;
   }
@@ -671,6 +750,7 @@ a {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-100vw);
   }
@@ -680,6 +760,7 @@ a {
   0% {
     transform: translateX(100vw);
   }
+
   100% {
     transform: translateX(0);
   }
@@ -691,6 +772,7 @@ a {
   width: 10000px;
   left: 0px;
 }
+
 .coin {
   position: absolute;
   background-color: goldenrod;
@@ -698,6 +780,7 @@ a {
   width: 25px;
   border-radius: 25px;
 }
+
 .obstacle {
   position: absolute;
   background-color: red;
@@ -705,6 +788,7 @@ a {
   width: 25px;
   border-radius: 25px;
 }
+
 .end {
   position: absolute;
   bottom: 0px;
@@ -715,15 +799,10 @@ a {
 }
 
 @media only screen and (max-width: 600px) {
-  #about h1 {
-    font-size: 24px;
-    width: unset;
-    text-align: center;
-  }
-
   #skills ul {
     flex-flow: row nowrap;
   }
+
   #skills ul li:last-child {
     padding-right: 30px;
   }
@@ -746,8 +825,11 @@ a {
     position: absolute;
     left: 15px;
     font-size: 48px;
-    transition: all 0.5s linear 0.25s, color 0.1s;
+    transition:
+      all 0.5s linear 0.25s,
+      color 0.1s;
   }
+
   #nav-toggle:checked ~ label {
     max-height: 0;
     opacity: 0;
@@ -760,25 +842,31 @@ a {
     padding: 15px;
     font-size: 36px;
   }
+
   #nav {
     padding: 0;
     font-size: 24px;
   }
+
   #nav .nav-container div {
     display: block;
   }
+
   #nav .right {
     float: none;
   }
+
   #nav ul {
     display: block;
     border-top: 1px solid black;
     padding-top: 15px;
   }
+
   #nav ul li {
     display: block;
     margin-right: 10px;
   }
+
   .nav-container {
     height: 0px;
     overflow: hidden;
@@ -796,9 +884,11 @@ a {
   .nav-container .left {
     padding: 15px;
   }
+
   #nav.hero-visible a {
     color: black;
   }
+
   #nav-toggle:checked ~ .nav-container {
     height: 100vh;
     opacity: 1;
