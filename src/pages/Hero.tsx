@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React, { createRef, useEffect } from "react";
 import useScroll from "@/hooks/useScroll";
 import { useBackground } from "@/contexts/backgroundContext";
 
-export const heroRef = React.createRef<HTMLDivElement>();
+export const heroRef = createRef<HTMLDivElement>();
 
 const Hero = () => {
     const scrollY = useScroll();
