@@ -33,7 +33,7 @@ module.exports = {
       },
       {
         test: /\.m?jsx?$/,
-        exclude: /node_modules/,
+      exclude: [/node_modules/, /\.test\.m?jsx$/],
         use: {
           loader: 'babel-loader',
         }
@@ -41,7 +41,7 @@ module.exports = {
       {
         test: /\.tsx?$/,
         use: 'ts-loader',
-        exclude: /node_modules/,
+        exclude: [/node_modules/, /\.test\/\.tsx?$/],
       },
       {
         test: /\.s[ac]ss$/i,
