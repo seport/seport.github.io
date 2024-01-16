@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { createRef, useState } from "react";
 import TextareaAutosize from "react-textarea-autosize";
 
 import githubImg from "@/public/github.png";
 import jsfiddleImg from "@/public/jsfiddle.png";
 import linkedinImg from "@/public/linkedin.png";
 
+export const contactRef = createRef<HTMLDivElement>()
+
 const Contact = () => {
-    const [formOpen, setFormOpen] = useState(false);
-    const [formSent, setFormSent] = useState(false);
-    return (
-    <div id="contact">
+  const [formOpen, setFormOpen] = useState(false);
+  const [formSent, setFormSent] = useState(false);
+  return (
+    <div id="contact" ref={contactRef}>
       <div className="contactcontainer">
         <h1>Want to work on something?</h1>
         <div className="socialicons">
@@ -39,7 +41,7 @@ const Contact = () => {
               action="https://docs.google.com/forms/u/3/d/e/1FAIpQLSdnz1bfECs0gzzUtLxDG2gnJfHL7jgFUGNJHaZSBOhMaSYsBg/formResponse"
               method="POST"
               target="hidden_iframe"
-              onSubmit={() => {setFormSent(true)}}
+              onSubmit={() => { setFormSent(true) }}
               className={formOpen && !formSent ? "" : "hidden"}
             >
               <label>Email:</label>

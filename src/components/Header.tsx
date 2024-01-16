@@ -1,22 +1,60 @@
-import React, { useRef } from "react";
-import useIsVisible from "@/hooks/useIsVisible";
-import { heroRef } from "@/pages/Hero";
+import { getVisibleSection } from "@/helpers/visibleSectionHelper";
+import useScroll from "@/hooks/useScroll";
+import React, { useEffect, useRef, useState } from "react";
 
 const Header = () => {
-  const heroVisible = useIsVisible(heroRef);
+  const scrollY = useScroll()
+  const [currentSection, setCurrentSection] = useState('#about')
+
+  useEffect(() => {
+    const newCurrentSection = getVisibleSection(scrollY)
+    if (currentSection !== newCurrentSection) {
+      setCurrentSection(newCurrentSection)
+    }
+  }, [scrollY])
+
+  useEffect(() => {
+    if (currentSection === "about") {
+      window.history.pushState({}, '', `/`)
+    } else {
+      window.history.pushState({}, '', `#${currentSection}`)
+    }
+  }, [currentSection])
+
   const toggleRef = useRef(null);
 
   const closeNav = () => {
     toggleRef.current.checked = false;
   }
 
+  const isCurrent = (id: string) => currentSection === id ? 'current' : ''
+
   return (
-    <div id="nav" className={heroVisible ? "hero-visible" : ""}>
+    <div id="nav">
       <input type="checkbox" id="nav-toggle" ref={toggleRef} />
       <label htmlFor="nav-toggle">≡</label>
       <div className="nav-container" onClick={closeNav}>
         <div className="nav-close">×</div>
-        <ul className="right">
+        <div className="menu-links">
+          <ul>
+            <li>
+              <a href="#about" className={isCurrent('about')}>Top</a>
+            </li>
+            <li>
+              <a href="#skills" className={isCurrent('skills')}>Skills</a>
+            </li>
+            <li>
+              <a href="#blogs" className={isCurrent('blogs')}>Blogs</a>
+            </li>
+            <li>
+              <a href="#projectswrapper" className={isCurrent('projectswrapper')}>Projects</a>
+            </li>
+            <li>
+              <a href="#contact" className={isCurrent('contact')}>Contact</a>
+            </li>
+          </ul>
+        </div>
+        <ul className="social-links">
           <li>
             <a href="https://twitter.com/seport_">Twitter</a>
           </li>
@@ -36,27 +74,6 @@ const Header = () => {
             </a>
           </li>
         </ul>
-        <div className="left">
-          <div>
-            <a href="#about">About</a>
-            {` / `}
-          </div>
-          <div>
-            <a href="#skills">Skills</a>
-            {` / `}
-          </div>
-          <div>
-            <a href="#blogs">Blogs</a>
-            {` / `}
-          </div>
-          <div>
-            <a href="#projectswrapper">Projects</a>
-            {` / `}
-          </div>
-          <div>
-            <a href="#contact">Contact</a>
-          </div>
-        </div>
       </div>
     </div>
   );

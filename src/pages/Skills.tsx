@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { createRef, useEffect, useRef } from "react";
 import useWindowLocation from "@/hooks/useWindowLocation";
 import Card from "@/components/Card";
 import RecommendedReading from "@/components/RecommendedReading";
@@ -7,11 +7,13 @@ import SkillList from "@/components/SkillList";
 import Carousel from "@/components/Carousel";
 import CarouselPage from "@/components/CarouselPage";
 
+export const skillsRef = createRef<HTMLDivElement>();
+
 const Skills = () => {
   const location = useWindowLocation();
 
   return (
-    <div id="skills">
+    <div id="skills" ref={skillsRef}>
       <Carousel isShifted={location.search.skill}>
         <CarouselPage>
           <SkillList />

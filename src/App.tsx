@@ -12,8 +12,8 @@ const App = () => {
   const backgroundColor = useBackground().color
   return (
     <div style={{ backgroundColor}}>
-      <Hero />
       <Header />
+      <Hero />
       <Skills />
       <Blogs />
       <Projects />

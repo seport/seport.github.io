@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createRef } from "react";
 import useWindowLocation from "@/hooks/useWindowLocation";
 import { handleNav } from "@/helpers/navHelpers";
 
@@ -10,11 +10,14 @@ import faceworkDesktopImg from "@/public/facework-desktop.png";
 import Project from "@/components/Project";
 import Carousel from "@/components/Carousel";
 import CarouselPage from "@/components/CarouselPage";
+
+export const projectsRef = createRef<HTMLDivElement>()
+
 const Projects = () => {
   const location = useWindowLocation();
 
   return (
-    <div id="projectswrapper">
+    <div id="projectswrapper" ref={projectsRef}>
       <div className="projects-scroll-wrapper">
         <Carousel isShifted={location.search.project}>
           <CarouselPage>

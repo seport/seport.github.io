@@ -1,11 +1,13 @@
-import React from "react";
+import React, { createRef } from "react";
 import useScroll from "@/hooks/useScroll";
+
+export const blogsRef = createRef<HTMLDivElement>()
 
 const Blogs = () => {
   const scrollY = useScroll();
 
   return (
-    <div id="blogs" style={{ backgroundPosition: `${scrollY}px ${-scrollY}px` }}>
+    <div id="blogs" style={{ backgroundPosition: `${scrollY}px ${-scrollY}px` }} ref={blogsRef}>
       <div className="blogs-inner">
         <h1>✏️</h1>
         <h1>I've written about some of them too.</h1>
