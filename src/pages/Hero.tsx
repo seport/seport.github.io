@@ -13,7 +13,8 @@ const Hero = () => {
         if (scrollY < sectionHeight) {
             const opacity = 1 - Math.min(scrollY / sectionHeight, 1)
             setBackground(`rgba(242,230,234,${opacity})`)
-
+        } else {
+            setBackground('rgba(242,230,234,0')
         }
     }, [scrollY])
 

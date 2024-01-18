@@ -24,8 +24,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        test: /\.(png|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
+      },
+      {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
       },
       {
         test: /\.css$/i,
@@ -33,7 +37,7 @@ module.exports = {
       },
       {
         test: /\.m?jsx?$/,
-      exclude: [/node_modules/, /\.test\.m?jsx$/],
+        exclude: [/node_modules/, /\.test\.m?jsx$/],
         use: {
           loader: 'babel-loader',
         }

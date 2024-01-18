@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@500&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap");
 
 /* Variables */
 // colors
@@ -11,6 +12,18 @@ $white: #ffffff;
 $black: #2a3439;
 $grey: #708090;
 $light-grey: #ccd1d7;
+
+// spacing
+$spacing-0_5x: 4px;
+$spacing-1x: 8px;
+$spacing-2x: 16px;
+$spacing-3x: 24px;
+$spacing-4x: 32px;
+$spacing-6x: 48px;
+$spacing-8x: 64px;
+
+// z-indexes
+$z-index-navigation: 10;
 
 // fonts
 $font-size-sm: 13px;
@@ -24,6 +37,18 @@ $h1-color: $black;
 $h1-font-weight: 500;
 $h1-size-mobile: $font-size-lg;
 $h1-size-desktop: $font-size-2xl;
+
+$h4-font-family: "Fredoka", sans-serif;
+$h4-color: $black;
+$h4-font-weight: 500;
+$h4-size-mobile: $font-size-md;
+$h4-size-desktop: $font-size-lg;
+
+$small-font-family: "Poppins", sans-serif;
+$small-color: $black;
+$small-font-weight: 400;
+$small-size-mobile: $font-size-sm;
+$small-size-desktop: $font-size-md;
 
 // breakpoints
 $mobile: 660;
@@ -41,154 +66,384 @@ $mobile: 660;
   }
 }
 
+/* Animations */
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideY {
+  from {
+    transform: translateY(-100px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Body */
+h4 {
+  font-family: $h4-font-family;
+  font-weight: $h4-font-weight;
+  color: $h4-color;
+  margin: $spacing-2x 0;
+  @include max-width($mobile) {
+    font-size: $h4-size-mobile;
+    text-align: center;
+  }
+  @include min-width($mobile) {
+    font-size: $h4-size-desktop;
+  }
+}
+
+small {
+  font-family: $small-font-family;
+  font-weight: $small-font-weight;
+  color: $small-color;
+  margin: $spacing-2x 0;
+  display: block;
+  @include max-width($mobile) {
+    font-size: $small-size-mobile;
+    text-align: center;
+  }
+  @include min-width($mobile) {
+    font-size: $small-size-desktop;
+  }
+}
+
+svg {
+  stroke: $black;
+}
+
+*:focus-visible {
+  outline: 3px solid $light-grey;
+}
+
+/* buttons */
+button.button--plain {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* forms */
+form {
+  display: grid;
+  gap: $spacing-1x;
+}
+
+input,
+textarea,
+select {
+  border-radius: $spacing-1x;
+  border: 1px solid $grey;
+  padding: $spacing-0_5x $spacing-1x;
+  font-family: $small-font-family;
+  font-weight: $small-font-weight;
+  font-size: $font-size-sm;
+  outline-color: rgba(0, 0, 0, 0);
+  background: white;
+
+  &::placeholder {
+    color: $grey;
+  }
+}
+select {
+  width: 100%;
+}
+
+button {
+  background: $black;
+  border-radius: $spacing-1x;
+  border: none;
+  color: $white;
+  padding: $spacing-0_5x;
+}
+
 /* Navigation */
 #nav {
-  position: sticky;
-  left: 0;
-  right: 0;
-  top: 0px;
   z-index: 2;
   transition: all 0.2s;
-  padding: 5px 15px;
-  font-family: 'Roboto Mono', monospace;
-  font-size: $font-size-md;
+  font-family: "Roboto Mono", monospace;
   font-weight: 500;
-}
 
-#nav a {
-  text-decoration: none;
-  color: $black;
-  position: relative;
-  transition: all 0.2s;
-  &:hover,
-  &.current {
-    color: $dark-pink
-  }
-}
-
-#nav .nav-container {
-  display: grid;
-  grid-template-areas: "menu social";
-  grid-template-columns: 1fr auto;
-}
-
-#nav .nav-container .menu-links {
-  grid-area: "menu";
-}
-#nav .nav-container .social-links {
-  grid-area: "social";
-}
-
-#nav ul {
-  margin: 0;
-  padding: 0;
-  display: inline-block;
-}
-
-#nav ul li {
-  display: inline-block;
-  margin-right: 10px;
-  &:after {
-    margin-left: 10px;
-    content: "/";
+  & a {
+    text-decoration: none;
+    color: $black;
+    position: relative;
+    transition: all 0.2s;
+    &:hover,
+    &.current {
+      color: $dark-pink;
+    }
   }
 
-  &:last-child {
-    margin-right: 0;
-    &:after {
+  & ul {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+
+    & li {
+      display: inline-block;
+    }
+  }
+
+  // mobile only styles
+  @include max-width($mobile) {
+    & .nav-container {
+      z-index: $z-index-navigation;
+      grid-template-areas: "menu" "nav-footer";
+      grid-template-rows: 1fr auto;
+      gap: $spacing-8x;
+      position: fixed;
+      top: 0px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: white;
+      font-size: $font-size-lg;
+      overflow: auto;
+
       display: none;
+
+      &-enter-active {
+        display: grid;
+        animation: fade 0.5s;
+        animation-timing-function: ease;
+        animation-fill-mode: forwards;
+        & .menu-links,
+        & .footer .contact {
+          animation: slideY 0.5s;
+          animation-fill-mode: forwards;
+          animation-timing-function: ease;
+        }
+      }
+      &-enter-done {
+        display: grid;
+      }
+      &-exit-active {
+        display: grid;
+        animation: fade 0.5s;
+        animation-timing-function: ease;
+        animation-fill-mode: forwards;
+        animation-direction: reverse;
+        overflow: hidden;
+
+        & .menu-links,
+        & .footer .contact {
+          animation: slideY 0.5s;
+          animation-fill-mode: forwards;
+          animation-timing-function: ease;
+          animation-direction: reverse;
+        }
+      }
+      &-exit-done {
+        display: none;
+      }
+    }
+
+    & ul {
+      display: grid;
+      gap: $spacing-3x;
+      padding: $spacing-8x $spacing-6x 0;
+
+      & li:before {
+        margin-right: 10px;
+        content: "/";
+      }
+    }
+
+    // navigation menu icon styles
+    // icon toggles between hamburger and close icons
+    .nav-toggle {
+      z-index: $z-index-navigation + 1;
+      position: fixed;
+      top: $spacing-2x;
+      right: $spacing-2x;
+
+      // initial path and animation attributes in case path attribute is supported by browser
+      @supports (d: path("M 5.75 5.75 L 21.25 21.25")) {
+        & .hamburger-icon,
+        & .icon-hamburger_svg__top-line,
+        & .icon-hamburger_svg__bottom-line,
+        & .icon-hamburger_svg__middle-line {
+          transition: 0.2s ease-in-out;
+        }
+        & .icon-hamburger_svg__top-line {
+          d: path("M 2 6.5 L 24 6.5");
+        }
+        & .icon-hamburger_svg__bottom-line {
+          d: path("M 24 20.5 L 2 20.5");
+        }
+      }
+
+      // menu open state
+      &.is-open {
+        // transform hamburger icon -> close icon if path attribute is supported by browser
+        @supports (d: path("M 5.75 5.75 L 21.25 21.25")) {
+          & .icon-hamburger_svg__top-line {
+            d: path("M 5.75 5.75 L 21.25 21.25");
+          }
+          & .icon-hamburger_svg__bottom-line {
+            d: path("M 21.25 5.75 L 5.75 21.25");
+          }
+          & .icon-hamburger_svg__middle-line {
+            stroke: rgba(0, 0, 0, 0);
+          }
+        }
+        // if path is not supported then fade out the hamburger icon and fade in the close icon
+        @supports not (d: path("M 5.75 5.75 L 21.25 21.25")) {
+          & .hamburger-icon {
+            opacity: 0;
+          }
+          & .close-icon--safari-polyfill {
+            transform: rotate(-90deg);
+            opacity: 1;
+          }
+        }
+      }
+      // close icon only displayed if css path attribute not supported by the browser
+      .close-icon--safari-polyfill {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: 0.5s;
+        opacity: 0;
+      }
+    }
+
+    & .social-links {
+      display: none;
+    }
+  }
+
+  // desktop only styles
+  @include min-width($mobile) {
+    position: sticky;
+    left: 0;
+    right: 0;
+    top: 0px;
+    padding: 5px 15px;
+    font-size: $font-size-md;
+
+    & .nav-container {
+      display: grid;
+      grid-template-areas: "menu social";
+      grid-template-columns: max-content auto;
+      justify-content: space-between;
+      gap: $spacing-8x;
+      height: $font-size-lg;
+      overflow: hidden;
+
+      .social-links {
+        text-align: right;
+      }
+    }
+
+    & ul li {
+      &:before {
+        margin: 0 10px;
+        content: "/";
+      }
+
+      &:first-child {
+        &:before {
+          display: none;
+        }
+      }
+    }
+
+    & .footer,
+    & .nav-toggle__container {
+      display: none;
+    }
+  }
+
+  & .menu-links {
+    grid-area: menu;
+  }
+
+  & .social-links {
+    grid-area: social;
+  }
+
+  & .footer {
+    grid-area: nav-footer;
+  }
+}
+
+/* Footer */
+.contact-background {
+  background: $light-pink;
+}
+.contact {
+  display: grid;
+  grid-template-areas: "contact-email contact-socials contact-archives" "contact-footer contact-footer contact-footer";
+  row-gap: $spacing-8x;
+  column-gap: $spacing-4x;
+  justify-content: space-between;
+  padding: $spacing-8x $spacing-4x;
+  max-width: 900px;
+  margin: auto;
+}
+
+.email-cell {
+  grid-area: contact-email;
+}
+.socials-cell {
+  grid-area: contact-socials;
+}
+.archive-cell {
+  grid-area: contact-archives;
+}
+.contactbottom {
+  grid-area: contact-footer;
+  text-align: center;
+}
+
+.socialicons {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: $spacing-1x;
+}
+
+.contact .hidden {
+  opacity: 0;
+  max-height: 0 !important;
+  max-width: 0 !important;
+}
+
+// mobile only styles
+@include max-width($mobile) {
+  .contact {
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas: "contact-email" "contact-socials" "contact-archives" "contact-footer";
+    justify-content: stretch;
+    gap: $spacing-2x;
+    padding: $spacing-3x $spacing-1x;
+  }
+  .socialicons {
+    justify-content: center;
+
+    & img {
+      height: $spacing-4x;
     }
   }
 }
 
-#nav-toggle {
-  display: none;
-}
+// desktop only styles
+@include min-width($mobile) {
+  .socialicons {
+    justify-content: center;
 
-#nav-toggle ~ label {
-  display: none;
-}
-
-#nav .nav-container .nav-close {
-  display: none;
-}
-
-@include max-width($mobile) {
-  #nav-toggle ~ label {
-    display: block;
-    max-height: 50px;
-    overflow: hidden;
-    position: absolute;
-    left: 15px;
-    font-size: 48px;
-    transition:
-      all 0.5s linear 0.25s,
-      color 0.1s;
-  }
-
-  #nav-toggle:checked ~ label {
-    max-height: 0;
-    opacity: 0;
-    transition: none;
-  }
-
-  #nav .nav-container .nav-close {
-    display: inline;
-    order: 1;
-    padding: 15px;
-    font-size: 36px;
-  }
-
-  #nav {
-    padding: 0;
-    font-size: 24px;
-  }
-
-  #nav .nav-container div {
-    display: block;
-  }
-
-  #nav .right {
-    float: none;
-  }
-
-  #nav ul {
-    display: block;
-    border-top: 1px solid black;
-    padding-top: 15px;
-  }
-
-  #nav ul li {
-    display: block;
-    margin-right: 10px;
-  }
-
-  .nav-container {
-    height: 0px;
-    overflow: hidden;
-    background: white;
-    color: black;
-    display: flex;
-    flex-flow: column-reverse;
-    z-index: 10000;
-    transition: all 0.25s;
-    justify-content: flex-end;
-    opacity: 0;
-  }
-
-  #nav ul,
-  .nav-container .left {
-    padding: 15px;
-  }
-
-  #nav.hero-visible a {
-    color: black;
-  }
-
-  #nav-toggle:checked ~ .nav-container {
-    height: 100vh;
-    opacity: 1;
-    overflow: auto;
+    & img {
+      height: $spacing-6x;
+    }
   }
 }
 
@@ -508,116 +763,6 @@ a {
 #project h1 {
   text-align: left;
   padding: unset;
-}
-
-#contact {
-  background-color: slategray;
-  text-align: center;
-  padding: 30px;
-  height: calc(100vh - 60px);
-  display: flex;
-  position: relative;
-  justify-content: center;
-}
-
-#contact .contactcontainer {
-  align-self: center;
-}
-
-#contact .socialicons img {
-  height: 50px;
-  margin-left: 10px;
-}
-
-#contact .contact-container {
-  min-height: 300px;
-}
-
-#contact .contact {
-  display: inline-block;
-  border: 2px solid #fedcd2;
-  border-radius: 5px;
-  padding: 10px;
-  font-weight: bold;
-  text-align: left;
-}
-
-#contact .contact a {
-  text-decoration: none;
-  color: #fedcd2;
-  font-weight: 900;
-  font-size: 30px;
-  max-height: 1000px;
-  display: block;
-  overflow: hidden;
-}
-
-#contact button {
-  font-family: "Nunito", sans-serif;
-  text-decoration: none;
-  /* color: #FEDCD2; */
-  font-weight: 900;
-  font-size: 30px;
-  background: none;
-  border: none;
-  /* border: 2px solid #FEDCD2; */
-  border-radius: 5px;
-  padding: 10px;
-  display: block;
-  text-align: center;
-  width: 100%;
-}
-
-#contact form {
-  transition:
-    all 1s,
-    opacity 1s linear 0.2s;
-  max-height: 1000px;
-  max-width: 1000px;
-}
-
-#contact form input,
-#contact form textarea {
-  border: none;
-  height: 24px;
-  font-size: 18px;
-  font-family: Arial, Helvetica, sans-serif;
-  border-radius: 5px;
-  width: 100%;
-}
-
-#contact form label {
-  display: block;
-}
-
-#contact .form-sent-message {
-  text-decoration: none;
-  color: #fedcd2;
-  font-weight: 900;
-  font-size: 30px;
-  max-height: 1000px;
-  display: block;
-  overflow: hidden;
-  transition: 1s linear 1s;
-}
-
-#contact form.hidden {
-  transition:
-    all 1s linear 0.1s,
-    opacity 0.5s;
-}
-
-#contact .hidden {
-  opacity: 0;
-  max-height: 0 !important;
-  max-width: 0 !important;
-}
-
-#contact .contactbottom {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
 }
 
 /** COMPONENTS **/
