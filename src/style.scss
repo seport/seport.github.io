@@ -147,7 +147,6 @@ svg {
   outline: 3px solid $light-grey;
 }
 
-
 .section {
   max-width: $max-width;
   margin: auto;
@@ -523,9 +522,17 @@ button {
 }
 
 /* Skills */
-#skills svg {
-  font-family: "Roboto Mono", monospace;
+#skills {
+  & .treemap-container {
+    width: 100%;
+    overflow: scroll;
+
+    & svg {
+      font-family: "Roboto Mono", monospace;
+    }
+  }
 }
+
 // #skills {
 //   padding: 100px 0;
 //   position: relative;

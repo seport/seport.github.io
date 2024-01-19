@@ -1,24 +1,34 @@
 import React, { createRef, useEffect, useRef } from "react";
 import { color, hierarchy, interpolateRgb, scaleOrdinal, schemeCategory10, select, treemap } from "d3";
 import { treemapData } from "@/recommendedReading";
+import useWindowSize from "@/hooks/useWindowSize";
 
 export const skillsRef = createRef<HTMLDivElement>();
 
 const Skills = () => {
   // const location = useWindowLocation();
   const svgRef = createRef<SVGSVGElement>()
+  const { x: windowWidth } = useWindowSize()
 
   const renderTreeMap = () => {
     const svg = select(svgRef.current)
 
-    svg.attr('width', 900).attr('height', 900)
+    svg.selectAll("*").remove();
+
+    console.log(window.innerWidth)
+    // width is 1000 on mobile, and at most 900 on desktop
+    const svgWidth = window.innerWidth >= 660 ? Math.min(900, window.innerWidth - 32) : 1000
+    // height is 400 on mobile, 900 on desktop
+    const svgHeight = window.innerWidth >= 660 ? 900 : 400
+
+    svg.attr('width', svgWidth).attr('height', svgHeight)
 
     const root = hierarchy(treemapData)
       .sum((d: any) => d.value)
       .sort((a, b) => b.value - a.value)
 
     const treemapRoot = treemap()
-      .size([900, 900])
+      .size([svgWidth, svgHeight])
       .padding(3)(root)
 
     const nodes = svg.selectAll('g')
@@ -66,7 +76,7 @@ const Skills = () => {
     if (svgRef.current) {
       renderTreeMap()
     }
-  }, [svgRef])
+  }, [svgRef, windowWidth])
 
   return (
     <div id="skills" ref={skillsRef}>
@@ -75,7 +85,9 @@ const Skills = () => {
         <br />
         Here's some of my favorites.
       </h2>
-      <svg ref={svgRef} />
+      <div className="treemap-container">
+        <svg ref={svgRef} />
+      </div>
       {/* <Carousel isShifted={location.search.skill}>
         <CarouselPage>
           <SkillList />
