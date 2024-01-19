@@ -12,6 +12,7 @@ $white: #ffffff;
 $black: #2a3439;
 $grey: #708090;
 $light-grey: #ccd1d7;
+$overlay: rgba(112, 128, 144, 0.25);
 
 // spacing
 $spacing-0_5x: 4px;
@@ -27,6 +28,7 @@ $max-width: 900px;
 
 // z-indexes
 $z-index-navigation: 10;
+$z-index-modal: 20;
 
 // fonts
 $font-size-sm: 13px;
@@ -52,6 +54,12 @@ $h4-color: $black;
 $h4-font-weight: 500;
 $h4-size-mobile: $font-size-md;
 $h4-size-desktop: $font-size-lg;
+
+$body-font-family: "Poppins", sans-serif;
+$body-color: $black;
+$body-font-weight: 400;
+$body-size-mobile: $font-size-md;
+$body-size-desktop: $font-size-md;
 
 $small-font-family: "Poppins", sans-serif;
 $small-color: $black;
@@ -94,6 +102,10 @@ $mobile: 660;
 }
 
 /* Body */
+body {
+  font-family: $body-font-family;
+}
+
 h2 {
   font-family: $h2-font-family;
   font-weight: $h2-font-weight;
@@ -141,6 +153,11 @@ small {
 
 svg {
   stroke: $black;
+}
+
+pre {
+  max-width: 100%;
+  overflow: auto;
 }
 
 *:focus-visible {
@@ -504,7 +521,6 @@ button {
 }
 
 /* Clients */
-
 #clients {
   text-align: center;
   padding: $spacing-4x;
@@ -529,8 +545,21 @@ button {
 
     & svg {
       font-family: "Roboto Mono", monospace;
+      & .treemap-node,
+      & .treemap-node ~ text {
+        cursor: pointer;
+      }
     }
   }
+  & ul li {
+    list-style-type: emoji-list;
+  }
+}
+
+@counter-style emoji-list {
+  system: cyclic;
+  symbols: 🌱 🌸 ✨ 💖 ☁️ 🐻 🔮 🐨 🌻 ⭐;
+  suffix: " ";
 }
 
 // #skills {
@@ -554,16 +583,6 @@ button {
 
 // #skills .recommended-reading__container ul {
 //   display: block;
-// }
-
-// #skills .recommended-reading__container ul li {
-//   list-style-type: emoji-list;
-// }
-
-// @counter-style emoji-list {
-//   system: cyclic;
-//   symbols: 🌱 🌸 ✨ 💖 ☁️ 🐻 🔮 🐨 🌻 ⭐;
-//   suffix: " ";
 // }
 
 // .skill-list {
@@ -601,16 +620,56 @@ button {
 //   width: 100%;
 // }
 
+/* Modal */
+#modal {
+  & .modal-bg {
+    background: $overlay;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: $z-index-modal;
+    display: grid;
+    @include max-width($mobile) {
+      align-items: end;
+      justify-content: center;
+
+      & .card {
+        margin: 0;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+    @include min-width($mobile) {
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  & .modal-grid {
+    position: relative;
+    max-height: 75vh;
+    overflow: auto;
+    & .close-icon {
+      float: right;
+    }
+
+    @include max-width($mobile) {
+      min-height: 25vh;
+      width: 90vw;
+    }
+    @include min-width($mobile) {
+      max-width: 75vw;
+    }
+  }
+}
+
 /* OLD STYLES */
 body,
 html {
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
-}
-
-body {
-  font-family: "Nunito", sans-serif;
 }
 
 a {

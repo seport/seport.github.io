@@ -6,6 +6,7 @@ Tip: When writing responsive styles, I like avoid overriding styles with media q
 
 For example, you often see:
 
+${"```"}
 .example {
   background: pink;
   color: white;
@@ -22,11 +23,13 @@ For example, you often see:
     position: static;
   }
 }
+${"```"}
 
 However, this can easily get out of hand when writing complex mobile responsive styles. It's not clear which styles are applied at which breakpoints.
 
 Instead, I like to separate the shared, mobile, and desktop styles like so:
 
+${"```"}
 // these styles are applied at every breakpoint
 .example {
   background: pink;
@@ -51,6 +54,7 @@ Instead, I like to separate the shared, mobile, and desktop styles like so:
     font-size: 2em;
   }
 }
+${"```"}
 
 This way it is easy to see at a glance what styles are being applied at every breakpoint
 `,
@@ -81,16 +85,19 @@ export const treemapData = {
         {
           category: "Frontend",
           name: "CSS",
+          id: "css",
           value: notesData.css.length + normalizer
         },
         {
           category: "Frontend",
           name: "Next.js",
+          id: "nextjs",
           value: notesData.nextjs.length + normalizer
         },
         {
           category: "Frontend",
           name: "React",
+          id: "react",
           value: notesData.react.length + normalizer
         },
       ]
@@ -101,16 +108,19 @@ export const treemapData = {
         {
           category: "Backend",
           name: "Node.js",
+          id: "node",
           value: notesData.node.length + normalizer
         },
         {
           category: "Backend",
           name: "Elixir",
+          id: "elixir",
           value: notesData.elixir.length + normalizer
         },
         {
           category: "Backend",
           name: "Ruby on Rails",
+          id: "rails",
           value: notesData.rails.length + normalizer
         },
       ]
@@ -121,16 +131,19 @@ export const treemapData = {
         {
           category: "Testing",
           name: "React Testing Library",
+          id: "react_testing_library",
           value: notesData.react_testing_library.length + normalizer
         },
         {
           category: "Testing",
           name: "Jest",
+          id: "jest",
           value: notesData.jest.length + normalizer
         },
         {
           category: "Testing",
           name: "Cypress",
+          id: "cypress",
           value: notesData.cypress.length + normalizer
         },
       ]

@@ -1,7 +1,9 @@
-import React, { createRef, useEffect, useRef } from "react";
+import React, { createRef, useEffect, useRef, useState } from "react";
 import { color, hierarchy, interpolateRgb, scaleOrdinal, schemeCategory10, select, treemap } from "d3";
-import { treemapData } from "@/recommendedReading";
+import { notesData, treemapData } from "@/recommendedReading";
 import useWindowSize from "@/hooks/useWindowSize";
+import { Modal } from "@/components/Modal";
+import Markdown from "markdown-to-jsx";
 
 export const skillsRef = createRef<HTMLDivElement>();
 
@@ -9,13 +11,15 @@ const Skills = () => {
   // const location = useWindowLocation();
   const svgRef = createRef<SVGSVGElement>()
   const { x: windowWidth } = useWindowSize()
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modalContent, setModalContent] = useState<keyof typeof notesData>()
 
   const renderTreeMap = () => {
     const svg = select(svgRef.current)
 
+    // clear previous treemap if this is a re-render
     svg.selectAll("*").remove();
 
-    console.log(window.innerWidth)
     // width is 1000 on mobile, and at most 900 on desktop
     const svgWidth = window.innerWidth >= 660 ? Math.min(900, window.innerWidth - 32) : 1000
     // height is 400 on mobile, 900 on desktop
@@ -50,6 +54,8 @@ const Skills = () => {
     }
 
     nodes.append('rect')
+      .attr('id', (d: any) => `treemap-${d.data.id}`)
+      .attr('class', "treemap-node")
       .attr('width', (d) => d.x1 - d.x0)
       .attr('height', (d) => d.y1 - d.y0)
       .attr('fill', (d: any) => colorScale(d.data.category))
@@ -72,9 +78,23 @@ const Skills = () => {
       .attr('y', 20)
   }
 
+  const openModal = (event: any) => {
+    console.log('OPENING')
+    const id = event.target.id.split('-')[1]
+    setModalContent(id)
+    setModalIsOpen(true)
+  }
   useEffect(() => {
     if (svgRef.current) {
       renderTreeMap()
+      Array.from(document.getElementsByClassName('treemap-node')).map((node) => {
+        node.addEventListener('click', openModal)
+      })
+    }
+    return () => {
+      Array.from(document.getElementsByClassName('treemap-node')).map((node) => {
+        node.removeEventListener('click', openModal)
+      })
     }
   }, [svgRef, windowWidth])
 
@@ -88,6 +108,11 @@ const Skills = () => {
       <div className="treemap-container">
         <svg ref={svgRef} />
       </div>
+      <Modal isOpen={modalIsOpen} toggleOpen={() => { setModalIsOpen(!modalIsOpen) }}>
+        <Markdown>
+          {notesData[modalContent] || "Nothing here."}
+        </Markdown>
+      </Modal>
       {/* <Carousel isShifted={location.search.skill}>
         <CarouselPage>
           <SkillList />
