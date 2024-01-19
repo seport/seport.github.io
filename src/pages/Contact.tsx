@@ -9,6 +9,10 @@ export const contactRef = createRef<HTMLDivElement>()
 
 export const Contact = () => {
   const [formSent, setFormSent] = useState(false);
+
+  const goToArchive: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
+    window.location.replace(`/${e.target.value}`)
+  }
   return (
     <div className="contact-background">
       <div className="contact">
@@ -56,7 +60,8 @@ export const Contact = () => {
         </div>
         <div className="archive-cell">
           <h4>Previous portfolios:</h4>
-          <select>
+          <select onChange={goToArchive}>
+            <option disabled selected><b>Year</b></option>
             <option>2021</option>
             <option>2017</option>
           </select>
