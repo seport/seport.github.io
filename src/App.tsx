@@ -7,16 +7,24 @@ import Contact from "@/pages/Contact";
 import Blogs from "@/pages/Blogs";
 import { useBackground } from "@/contexts/backgroundContext";
 import { Providers } from "@/providers";
+import { About } from "@/pages/About";
+import Clients from "@/components/Clients";
 
 const App = () => {
   const backgroundColor = useBackground().color
   return (
-    <div style={{ backgroundColor}}>
+    <div style={{ backgroundColor }}>
       <Header />
-      <Hero />
-      <Skills />
-      <Blogs />
-      <Projects />
+      <div className="section">
+        <Hero />
+        <About />
+      </div>
+      <Clients />
+      <div className="section">
+        <Skills />
+        <Blogs />
+        <Projects />
+      </div>
       <Contact />
     </div>
   );

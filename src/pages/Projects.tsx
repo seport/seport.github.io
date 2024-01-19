@@ -80,7 +80,6 @@ const Projects = () => {
           </CarouselPage>
         </Carousel>
       </div>
-      <Clients />
     </div>
   );
 };

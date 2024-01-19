@@ -21,6 +21,9 @@ $spacing-3x: 24px;
 $spacing-4x: 32px;
 $spacing-6x: 48px;
 $spacing-8x: 64px;
+$spacng-12x: 96px;
+
+$max-width: 900px;
 
 // z-indexes
 $z-index-navigation: 10;
@@ -37,6 +40,12 @@ $h1-color: $black;
 $h1-font-weight: 500;
 $h1-size-mobile: $font-size-lg;
 $h1-size-desktop: $font-size-2xl;
+
+$h2-font-family: "Fredoka", sans-serif;
+$h2-color: $black;
+$h2-font-weight: 500;
+$h2-size-mobile: $font-size-lg;
+$h2-size-desktop: $font-size-xl;
 
 $h4-font-family: "Fredoka", sans-serif;
 $h4-color: $black;
@@ -85,6 +94,22 @@ $mobile: 660;
 }
 
 /* Body */
+h2 {
+  font-family: $h2-font-family;
+  font-weight: $h2-font-weight;
+  color: $h2-color;
+  margin: $spacing-2x 0;
+  text-align: center;
+  margin: $spacng-12x 0;
+
+  @include max-width($mobile) {
+    font-size: $h2-size-mobile;
+  }
+  @include min-width($mobile) {
+    font-size: $h2-size-desktop;
+  }
+}
+
 h4 {
   font-family: $h4-font-family;
   font-weight: $h4-font-weight;
@@ -120,6 +145,13 @@ svg {
 
 *:focus-visible {
   outline: 3px solid $light-grey;
+}
+
+
+.section {
+  max-width: $max-width;
+  margin: auto;
+  padding: 0 $spacing-2x;
 }
 
 /* buttons */
@@ -270,7 +302,7 @@ button {
         & .icon-hamburger_svg__top-line,
         & .icon-hamburger_svg__bottom-line,
         & .icon-hamburger_svg__middle-line {
-          transition: 0.2s ease-in-out;
+          transition: 0.5s ease-in-out;
         }
         & .icon-hamburger_svg__top-line {
           d: path("M 2 6.5 L 24 6.5");
@@ -387,7 +419,7 @@ button {
   column-gap: $spacing-4x;
   justify-content: space-between;
   padding: $spacing-8x $spacing-4x;
-  max-width: 900px;
+  max-width: $max-width;
   margin: auto;
 }
 
@@ -447,7 +479,7 @@ button {
   }
 }
 
-/* Home */
+/* Hero Banner */
 #about {
   height: 350px;
   display: flex;
@@ -472,6 +504,24 @@ button {
   }
 }
 
+/* Clients */
+
+#clients {
+  text-align: center;
+  padding: $spacing-4x;
+
+  @include max-width($mobile) {
+    white-space: pre;
+    display: flex;
+    overflow: scroll;
+  }
+}
+
+#clients .logo {
+  height: $spacing-6x;
+  margin: 15px;
+}
+
 /* OLD STYLES */
 body,
 html {
@@ -486,17 +536,6 @@ body {
 
 a {
   color: black;
-}
-
-#clients {
-  text-align: center;
-  padding: 30px;
-}
-
-#clients .logo {
-  height: 50px;
-  filter: grayscale(100%) contrast(2);
-  margin: 15px;
 }
 
 .startbutton {

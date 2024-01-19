@@ -44,13 +44,21 @@ const Header = () => {
   }, [currentSection])
 
   // lock scroll on body when nav drawer is open
+  const closeNav = () => {
+    setisNavMenuOpen(false)
+    document.body.style.overflow = "auto"
+  }
+
+  const openNav = () => {
+    setisNavMenuOpen(true)
+    document.body.style.overflow = "hidden"
+  }
+
   const toggleNav = () => {
     if (isNavMenuOpen) {
-      setisNavMenuOpen(false)
-      document.body.style.overflow = "auto"
+      closeNav()
     } else {
-      setisNavMenuOpen(true)
-      document.body.style.overflow = "hidden"
+      openNav()
     }
   }
 
@@ -69,19 +77,19 @@ const Header = () => {
           <div className="menu-links">
             <ul>
               <li>
-                <a href="#about" className={isCurrent('about')} onClick={toggleNav}>Top</a>
+                <a href="#about" className={isCurrent('about')} onClick={closeNav}>Top</a>
               </li>
               <li>
-                <a href="#skills" className={isCurrent('skills')} onClick={toggleNav}>Skills</a>
+                <a href="#skills" className={isCurrent('skills')} onClick={closeNav}>Skills</a>
               </li>
               <li>
-                <a href="#blogs" className={isCurrent('blogs')} onClick={toggleNav}>Blogs</a>
+                <a href="#blogs" className={isCurrent('blogs')} onClick={closeNav}>Blogs</a>
               </li>
               <li>
-                <a href="#projectswrapper" className={isCurrent('projectswrapper')} onClick={toggleNav}>Projects</a>
+                <a href="#projectswrapper" className={isCurrent('projectswrapper')} onClick={closeNav}>Projects</a>
               </li>
               <li>
-                <a href="#contact" className={isCurrent('contact')} onClick={toggleNav}>Contact</a>
+                <a href="#contact" className={isCurrent('contact')} onClick={closeNav}>Contact</a>
               </li>
             </ul>
           </div>
