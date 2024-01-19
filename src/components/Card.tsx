@@ -1,14 +1,14 @@
 import React, { PropsWithChildren } from "react";
 
-const Card = ({ height, width, children }: PropsWithChildren<{height?: string, width?: string}>) => (
+const Card = ({ link, children }: PropsWithChildren<{ link?: string }>) => (
   <div
     className="card"
-    style={{
-      minHeight: `${height ? height : "auto"}`,
-      minWidth: `${width ? width : "auto"}`,
-    }}
   >
     {children}
+    {link && <>
+      <small>{new URL(link).host}</small>
+      <a href={link} className="card-link" />
+    </>}
   </div>
 );
 

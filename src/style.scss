@@ -31,7 +31,8 @@ $z-index-navigation: 10;
 $z-index-modal: 20;
 
 // fonts
-$font-size-sm: 13px;
+$font-size-xs: 10px;
+$font-size-sm: 12px;
 $font-size-md: 16px;
 $font-size-lg: 24px;
 $font-size-xl: 40px;
@@ -49,6 +50,12 @@ $h2-font-weight: 500;
 $h2-size-mobile: $font-size-lg;
 $h2-size-desktop: $font-size-xl;
 
+$h3-font-family: "Poppins", sans-serif;
+$h3-color: $black;
+$h3-font-weight: 500;
+$h3-size-mobile: $font-size-md;
+$h3-size-desktop: $font-size-lg;
+
 $h4-font-family: "Fredoka", sans-serif;
 $h4-color: $black;
 $h4-font-weight: 500;
@@ -58,14 +65,14 @@ $h4-size-desktop: $font-size-lg;
 $body-font-family: "Poppins", sans-serif;
 $body-color: $black;
 $body-font-weight: 400;
-$body-size-mobile: $font-size-md;
+$body-size-mobile: $font-size-sm;
 $body-size-desktop: $font-size-md;
 
 $small-font-family: "Poppins", sans-serif;
-$small-color: $black;
+$small-color: $grey;
 $small-font-weight: 400;
-$small-size-mobile: $font-size-sm;
-$small-size-desktop: $font-size-md;
+$small-size-mobile: $font-size-xs;
+$small-size-desktop: $font-size-sm;
 
 // breakpoints
 $mobile: 660;
@@ -104,6 +111,14 @@ $mobile: 660;
 /* Body */
 body {
   font-family: $body-font-family;
+  font-weight: 400;
+  color: $body-color;
+  @include max-width($mobile) {
+    font-size: $body-size-mobile;
+  }
+  @include min-width($mobile) {
+    font-size: $body-size-desktop;
+  }
 }
 
 h2 {
@@ -119,6 +134,21 @@ h2 {
   }
   @include min-width($mobile) {
     font-size: $h2-size-desktop;
+  }
+}
+
+h3 {
+  font-family: $h3-font-family;
+  font-weight: $h3-font-weight;
+  color: $h3-color;
+  margin: 0;
+  margin: 0;
+
+  @include max-width($mobile) {
+    font-size: $h3-size-mobile;
+  }
+  @include min-width($mobile) {
+    font-size: $h3-size-desktop;
   }
 }
 
@@ -144,7 +174,6 @@ small {
   display: block;
   @include max-width($mobile) {
     font-size: $small-size-mobile;
-    text-align: center;
   }
   @include min-width($mobile) {
     font-size: $small-size-desktop;
@@ -451,6 +480,9 @@ button {
 .contactbottom {
   grid-area: contact-footer;
   text-align: center;
+  small {
+    color: $body-color;
+  }
 }
 
 .socialicons {
@@ -562,63 +594,63 @@ button {
   suffix: " ";
 }
 
-// #skills {
-//   padding: 100px 0;
-//   position: relative;
-// }
+/* Blogs */
+#blogs {
+  & ul {
+    list-style-type: none;
+    display: grid;
+    gap: 36px;
+    padding: 0;
+    margin: 0;
 
-// #skills h1 {
-//   display: inline-block;
-// }
+    & li {
+      margin: 0;
+    }
+  }
 
-// #skills ul {
-//   display: flex;
-//   flex-flow: row wrap;
-//   list-style-type: none;
-// }
+  & .card {
+    align-items: start;
 
-// #skills .recommended-reading__container {
-//   max-width: 60vw;
-// }
+    & .blog-card__description {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 4;
+      overflow: hidden;
+    }
+  }
+}
 
-// #skills .recommended-reading__container ul {
-//   display: block;
-// }
+/* Card */
+.card {
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0px 0px 4px 1px rgba(112, 128, 144, 0.5);
+  display: inline-block;
+  padding: 20px;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 
-// .skill-list {
-//   width: 60vw;
-//   display: flex;
-//   flex-flow: column;
-//   align-items: center;
-// }
+  @include max-width($mobile) {
+    gap: 16px;
+  }
+  @include min-width($mobile) {
+    gap: 30px;
+  }
 
-// .skill-card {
-//   font-weight: bold;
-//   font-size: 24px;
-//   transition: all 0.25s;
-// }
+  & * {
+    margin: 0;
+  }
 
-// .skill-card__sprout::after {
-//   content: "🌱";
-//   position: absolute;
-//   top: 15px;
-//   right: 15px;
-// }
-
-// .skill-card__container {
-//   height: 250px;
-//   width: 200px;
-//   transition: all 0.5s;
-// }
-
-// .skill-card__container:hover {
-//   transform: scale(1.1);
-//   cursor: pointer;
-// }
-
-// #recommended-reading {
-//   width: 100%;
-// }
+  & .card-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
 
 /* Modal */
 #modal {
@@ -684,40 +716,6 @@ a {
 .startbutton:hover {
   color: grey;
   cursor: pointer;
-}
-
-#blogs {
-  text-align: center;
-  padding: 30px;
-  min-height: calc(100vh);
-  display: flex;
-  justify-content: center;
-  background: repeating-linear-gradient(
-      to right,
-      white 0px,
-      white 2px,
-      rgba(255, 255, 255, 0) 2px,
-      rgba(255, 255, 255, 0) 70px
-    ),
-    repeating-linear-gradient(to bottom, white 0px, white 2px, rgba(255, 255, 255, 0) 2px, rgba(255, 255, 255, 0) 70px),
-    repeating-linear-gradient(#fef4f1 0, #fef4f1 100px);
-  background-size: 70px 70px;
-  /* animation: diagonalScroll 3s infinite linear; */
-}
-
-#blogs .blogs-inner {
-  margin: 100px 0;
-}
-
-#blogs ul {
-  list-style-type: none;
-  display: flex;
-  flex-flow: column nowrap;
-  padding: 0;
-}
-
-#blogs ul li {
-  margin: 15px;
 }
 
 #projectswrapper {
@@ -848,20 +846,6 @@ a {
 }
 
 /** COMPONENTS **/
-.card {
-  background: white;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
-  border-radius: 5px;
-  display: inline-block;
-  padding: 15px;
-  margin: 15px;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
 .carousel__container {
   width: 99vw;
   overflow: hidden;

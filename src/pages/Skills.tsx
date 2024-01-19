@@ -21,9 +21,9 @@ const Skills = () => {
     svg.selectAll("*").remove();
 
     // width is 1000 on mobile, and at most 900 on desktop
-    const svgWidth = window.innerWidth >= 660 ? Math.min(900, window.innerWidth - 32) : 1000
+    const svgWidth = Math.min(900, window.innerWidth - 32)
     // height is 400 on mobile, 900 on desktop
-    const svgHeight = window.innerWidth >= 660 ? 900 : 400
+    const svgHeight = window.innerWidth >= 660 ? 900 : 500
 
     svg.attr('width', svgWidth).attr('height', svgHeight)
 
