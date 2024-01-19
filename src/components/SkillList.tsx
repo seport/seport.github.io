@@ -3,11 +3,6 @@ import SkillCard from "@/components/SkillCard";
 
 const SkillList = () => (
   <div className="skill-list">
-    <h1>
-      Technology is neat.
-      <br />
-      Here's some of my favorites.
-    </h1>
     <div className="skill-list__container">
       <ul>
         <li>

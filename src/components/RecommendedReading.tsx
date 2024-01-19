@@ -1,16 +1,16 @@
-import React from "react";
-import Markdown from "markdown-to-jsx";
-import recommendedReading from "@/recommendedReading";
+// import React from "react";
+// import Markdown from "markdown-to-jsx";
+// import recommendedReading from "@/recommendedReading";
 
-const RecommendedReading = ({ language }: { language: keyof typeof recommendedReading }) => {
-  return (
-    <div id="recommended-reading">
-      {recommendedReading[`${language}`] && (
-        <Markdown>{recommendedReading[`${language}`]}</Markdown>
-      )}
-      {!recommendedReading[`${language}`] && <div>Nothing here.</div>}
-    </div>
-  );
-};
+// const RecommendedReading = ({ language }: { language: keyof typeof recommendedReading }) => {
+//   return (
+//     <div id="recommended-reading">
+//       {recommendedReading[`${language}`] && (
+//         <Markdown>{recommendedReading[`${language}`]}</Markdown>
+//       )}
+//       {!recommendedReading[`${language}`] && <div>Nothing here.</div>}
+//     </div>
+//   );
+// };
 
-export default RecommendedReading;
+// export default RecommendedReading;

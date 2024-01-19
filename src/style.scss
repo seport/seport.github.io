@@ -522,6 +522,78 @@ button {
   margin: 15px;
 }
 
+/* Skills */
+#skills svg {
+  font-family: "Roboto Mono", monospace;
+}
+// #skills {
+//   padding: 100px 0;
+//   position: relative;
+// }
+
+// #skills h1 {
+//   display: inline-block;
+// }
+
+// #skills ul {
+//   display: flex;
+//   flex-flow: row wrap;
+//   list-style-type: none;
+// }
+
+// #skills .recommended-reading__container {
+//   max-width: 60vw;
+// }
+
+// #skills .recommended-reading__container ul {
+//   display: block;
+// }
+
+// #skills .recommended-reading__container ul li {
+//   list-style-type: emoji-list;
+// }
+
+// @counter-style emoji-list {
+//   system: cyclic;
+//   symbols: 🌱 🌸 ✨ 💖 ☁️ 🐻 🔮 🐨 🌻 ⭐;
+//   suffix: " ";
+// }
+
+// .skill-list {
+//   width: 60vw;
+//   display: flex;
+//   flex-flow: column;
+//   align-items: center;
+// }
+
+// .skill-card {
+//   font-weight: bold;
+//   font-size: 24px;
+//   transition: all 0.25s;
+// }
+
+// .skill-card__sprout::after {
+//   content: "🌱";
+//   position: absolute;
+//   top: 15px;
+//   right: 15px;
+// }
+
+// .skill-card__container {
+//   height: 250px;
+//   width: 200px;
+//   transition: all 0.5s;
+// }
+
+// .skill-card__container:hover {
+//   transform: scale(1.1);
+//   cursor: pointer;
+// }
+
+// #recommended-reading {
+//   width: 100%;
+// }
+
 /* OLD STYLES */
 body,
 html {
@@ -546,101 +618,6 @@ a {
 .startbutton:hover {
   color: grey;
   cursor: pointer;
-}
-
-/* #skills:before {
-    content: "";
-    height: 100px;
-    width: 100%;
-    position: absolute;
-    top: -100px;
-    left: 0;
-    right: 0;
-    background: radial-gradient(circle at 50% 100%, white 50%, transparent 51%);
-    background-size: 100px 100px;
-    background-repeat: repeat-x;
-  }
-
-  #skills:after {
-    content: "";
-    height: 100px;
-    width: 100%;
-    position: absolute;
-    bottom: -100px;
-    left: 0;
-    right: 0;
-    background: radial-gradient(circle at 50% 0%, white 50%, transparent 51%);
-    background-size: 100px 100px;
-    background-repeat: repeat-x;
-    z-index: 1;
-  } */
-
-#skills {
-  padding: 100px 0;
-  position: relative;
-}
-
-#skills h1 {
-  display: inline-block;
-}
-
-#skills ul {
-  display: flex;
-  flex-flow: row wrap;
-  list-style-type: none;
-}
-
-#skills .recommended-reading__container {
-  max-width: 60vw;
-}
-
-#skills .recommended-reading__container ul {
-  display: block;
-}
-
-#skills .recommended-reading__container ul li {
-  list-style-type: emoji-list;
-}
-
-@counter-style emoji-list {
-  system: cyclic;
-  symbols: 🌱 🌸 ✨ 💖 ☁️ 🐻 🔮 🐨 🌻 ⭐;
-  suffix: " ";
-}
-
-.skill-list {
-  width: 60vw;
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-}
-
-.skill-card {
-  font-weight: bold;
-  font-size: 24px;
-  transition: all 0.25s;
-}
-
-.skill-card__sprout::after {
-  content: "🌱";
-  position: absolute;
-  top: 15px;
-  right: 15px;
-}
-
-.skill-card__container {
-  height: 250px;
-  width: 200px;
-  transition: all 0.5s;
-}
-
-.skill-card__container:hover {
-  transform: scale(1.1);
-  cursor: pointer;
-}
-
-#recommended-reading {
-  width: 100%;
 }
 
 #blogs {

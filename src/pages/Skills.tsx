@@ -1,20 +1,82 @@
 import React, { createRef, useEffect, useRef } from "react";
-import useWindowLocation from "@/hooks/useWindowLocation";
-import Card from "@/components/Card";
-import RecommendedReading from "@/components/RecommendedReading";
-import { handleNav } from "@/helpers/navHelpers";
-import SkillList from "@/components/SkillList";
-import Carousel from "@/components/Carousel";
-import CarouselPage from "@/components/CarouselPage";
+import { color, hierarchy, interpolateRgb, scaleOrdinal, schemeCategory10, select, treemap } from "d3";
+import { treemapData } from "@/recommendedReading";
 
 export const skillsRef = createRef<HTMLDivElement>();
 
 const Skills = () => {
-  const location = useWindowLocation();
+  // const location = useWindowLocation();
+  const svgRef = createRef<SVGSVGElement>()
+
+  const renderTreeMap = () => {
+    const svg = select(svgRef.current)
+
+    svg.attr('width', 900).attr('height', 900)
+
+    const root = hierarchy(treemapData)
+      .sum((d: any) => d.value)
+      .sort((a, b) => b.value - a.value)
+
+    const treemapRoot = treemap()
+      .size([900, 900])
+      .padding(3)(root)
+
+    const nodes = svg.selectAll('g')
+      .data(treemapRoot.leaves())
+      .join('g')
+      .attr('transform', d => `translate(${d.x0},${d.y0})`)
+
+    const colorScale = (category: string) => {
+      switch (category) {
+        case "Frontend":
+          return "rgb(167,208,196)"
+        case "Backend":
+          return "rgb(133,194,238)"
+        case "Testing":
+          return "rgb(204,204,255)"
+        default:
+          return "rgb(255,255,255)"
+      }
+    }
+
+    nodes.append('rect')
+      .attr('width', (d) => d.x1 - d.x0)
+      .attr('height', (d) => d.y1 - d.y0)
+      .attr('fill', (d: any) => colorScale(d.data.category))
+      .attr('stroke', 'rgba(0,0,0,0)')
+
+    nodes.append('text')
+      .text((d: any) => d.data.name)
+      .attr('font-size', '24px')
+      .attr('fill', 'white')
+      .attr('stroke', 'none')
+      .attr('x', 8)
+      .attr('y', 44)
+
+    nodes.append('text')
+      .text((d: any) => d.data.category)
+      .attr('font-size', '16px')
+      .attr('fill', 'white')
+      .attr('stroke', 'none')
+      .attr('x', 8)
+      .attr('y', 20)
+  }
+
+  useEffect(() => {
+    if (svgRef.current) {
+      renderTreeMap()
+    }
+  }, [svgRef])
 
   return (
     <div id="skills" ref={skillsRef}>
-      <Carousel isShifted={location.search.skill}>
+      <h2>
+        Technology is neat.
+        <br />
+        Here's some of my favorites.
+      </h2>
+      <svg ref={svgRef} />
+      {/* <Carousel isShifted={location.search.skill}>
         <CarouselPage>
           <SkillList />
         </CarouselPage>
@@ -36,7 +98,7 @@ const Skills = () => {
             </Card>
           </div>
         </CarouselPage>
-      </Carousel>
+      </Carousel> */}
     </div>
   );
 };
