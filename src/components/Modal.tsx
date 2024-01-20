@@ -18,7 +18,7 @@ export const Modal = ({ isOpen, toggleOpen, children }: PropsWithChildren<{ isOp
                 <Card>
                     <div className="modal-grid">
                         <button className="close-icon button--plain" onClick={toggleOpen}>
-                            <CloseIcon height={12} />
+                            <CloseIcon />
                         </button>
                         {children}
                     </div>

@@ -31,21 +31,22 @@ module.exports = {
         test: /\.svg$/,
         use: [{
           loader: '@svgr/webpack',
-          options: {
-            svgoConfig: {
-              plugins: [
-                {
-                  name: 'preset-default',
-                  params: {
-                    overrides: {
-                      // disable plugins
-                      removeViewBox: false,
-                    },
-                  },
-                },
-              ],
-            }
-          }
+          // TODO: why does disabling removeViewBox break the d path animations??
+          // options: {
+          //   svgoConfig: {
+          //     plugins: [
+          //       {
+          //         name: 'preset-default',
+          //         params: {
+          //           overrides: {
+          //             // disable plugins
+          //             removeViewBox: false,
+          //           },
+          //         },
+          //       },
+          //     ],
+          //   }
+          // }
         }],
       },
       {
