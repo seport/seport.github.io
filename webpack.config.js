@@ -9,7 +9,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Sarah Port',
+      title: 'Sarah Port (っ·ᴥ·)っ',
+      favicon: './src/public/favico.png'
     }),
     new CopyWebpackPlugin({
       patterns: [{ from: './archive', to: '.' }]
