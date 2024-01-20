@@ -79,7 +79,6 @@ const Skills = () => {
   }
 
   const openModal = (event: any) => {
-    console.log('OPENING')
     const id = event.target.id.split('-')[1]
     setModalContent(id)
     setModalIsOpen(true)

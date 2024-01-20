@@ -1,6 +1,8 @@
 import React, { createRef, useEffect } from "react";
 import useScroll from "@/hooks/useScroll";
 import { useBackground } from "@/contexts/backgroundContext";
+import { Banner } from "@/components/banner";
+import BobaIcon from "@/public/boba.svg"
 
 export const heroRef = createRef<HTMLDivElement>();
 
@@ -19,11 +21,12 @@ const Hero = () => {
     }, [scrollY])
 
     return (
-        <div id="about" ref={heroRef}>
-            <h1>
-                Hi, I'm Sarah. 👋 <br /> I make websites and things.
-            </h1>
-        </div>
+        <><Banner button={<a href="https://www.google.com/maps/search/boba" target="_blank">Get boba</a>} icon={<BobaIcon />}> This website is best viewed with boba.</Banner>
+            <div id="about" ref={heroRef}>
+                <h1>
+                    Hi, I'm Sarah. 👋 <br /> I make websites and things.
+                </h1>
+            </div></>
     );
 };
 export default Hero;
