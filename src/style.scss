@@ -23,7 +23,7 @@ $spacing-3x: 24px;
 $spacing-4x: 32px;
 $spacing-6x: 48px;
 $spacing-8x: 64px;
-$spacng-12x: 96px;
+$spacing-12x: 96px;
 
 $max-width: 900px;
 
@@ -133,7 +133,7 @@ h2 {
   color: $h2-color;
   margin: $spacing-2x 0;
   text-align: center;
-  margin: $spacng-12x 0;
+  margin: $spacing-12x 0;
 
   @include max-width($mobile) {
     font-size: $h2-size-mobile;
@@ -535,10 +535,15 @@ button {
 
 /* Hero Banner */
 #about {
-  height: 350px;
   display: grid;
   justify-content: center;
   align-items: center;
+  @include max-width($mobile) {
+    margin: $spacing-12x 0;
+  }
+  @include min-width($mobile) {
+    height: 350px;
+  }
 }
 
 #about h1 {
@@ -562,17 +567,17 @@ button {
 #clients {
   text-align: center;
   padding: $spacing-4x;
-
-  @include max-width($mobile) {
-    white-space: pre;
-    display: flex;
-    overflow: scroll;
-  }
 }
 
 #clients .logo {
-  height: $spacing-6x;
-  margin: 15px;
+  @include max-width($mobile) {
+    height: $spacing-4x;
+    margin: $spacing-1x;
+  }
+  @include min-width($mobile) {
+    height: $spacing-6x;
+    margin: 15px;
+  }
 }
 
 /* Skills */
@@ -632,7 +637,7 @@ button {
   grid-template-columns: repeat(auto-fill, 350px);
   gap: $spacing-6x;
   justify-content: space-around;
-  margin: $spacng-12x 0;
+  margin: $spacing-12x 0;
 
   & .project {
     display: inline-grid;
