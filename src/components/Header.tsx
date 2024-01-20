@@ -86,7 +86,7 @@ const Header = () => {
                 <a href="#blogs" className={isCurrent('blogs')} onClick={closeNav}>Blogs</a>
               </li>
               <li>
-                <a href="#projectswrapper" className={isCurrent('projectswrapper')} onClick={closeNav}>Projects</a>
+                <a href="#projects" className={isCurrent('projectswrapper')} onClick={closeNav}>Projects</a>
               </li>
               <li>
                 <a href="#contact" className={isCurrent('contact')} onClick={closeNav}>Contact</a>

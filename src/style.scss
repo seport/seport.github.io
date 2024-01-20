@@ -13,6 +13,7 @@ $black: #2a3439;
 $grey: #708090;
 $light-grey: #ccd1d7;
 $overlay: rgba(112, 128, 144, 0.25);
+$border-shadow: rgba(112, 128, 144, 0.5);
 
 // spacing
 $spacing-0_5x: 4px;
@@ -88,6 +89,11 @@ $mobile: 660;
   @media (min-width: ($breakpoint+1+"px")) {
     @content;
   }
+}
+
+@mixin card-styles {
+  border-radius: 16px;
+  box-shadow: 0px 0px 4px 1px $border-shadow;
 }
 
 /* Animations */
@@ -620,11 +626,162 @@ button {
   }
 }
 
+/* Projects */
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 350px);
+  gap: $spacing-6x;
+  justify-content: space-around;
+  margin: $spacng-12x 0;
+
+  & .project {
+    display: inline-grid;
+    position: relative;
+
+    & img {
+      @include card-styles;
+      height: 200px;
+      width: 350px;
+      object-fit: cover;
+      object-position: center center;
+    }
+
+    & h3 {
+      text-align: center;
+    }
+  }
+}
+// #projectswrapper {
+//   position: relative;
+// }
+
+// /* #projectswrapper:before {
+//     content: "";
+//     height: 100px;
+//     width: 100%;
+//     position: absolute;
+//     top: -100px;
+//     left: 0;
+//     right: 0;
+//     background: radial-gradient(circle at 50% 100%, white 50%, transparent 51%);
+//     background-size: 100px 100px;
+//     background-repeat: repeat-x;
+//   } */
+
+// /* #projectswrapper:after {
+//     content: "";
+//     height: 100px;
+//     width: 100%;
+//     position: absolute;
+//     bottom: -100px;
+//     left: 0;
+//     right: 0;
+//     background: radial-gradient(circle at 50% 0%, white 50%, transparent 51%);
+//     background-size: 100px 100px;
+//     background-repeat: repeat-x;
+//     z-index: 1;
+//   } */
+
+// #projectswrapper h1 {
+//   text-align: center;
+//   padding: 75px;
+// }
+
+// .projects-scroll-wrapper {
+//   overflow: hidden;
+//   padding-bottom: 100px;
+// }
+
+// .projectswrapper--inner {
+//   padding: 0px 20vw;
+//   width: 60vw;
+// }
+
+// #projects {
+//   display: flex;
+//   flex-flow: row wrap;
+//   justify-content: space-around;
+//   align-content: space-around;
+// }
+
+// #projects .project {
+//   height: 275px;
+//   width: 275px;
+//   position: relative;
+//   cursor: pointer;
+//   margin: 30px;
+// }
+
+// #projects a .project {
+//   color: black;
+// }
+
+// #projects .project h1 {
+//   width: 225px;
+//   padding: inherit;
+// }
+
+// #projects .desktop {
+//   height: 155px;
+//   width: 225px;
+//   background-color: lightgrey;
+//   border-top-left-radius: 5px;
+//   border-top-right-radius: 5px;
+//   position: relative;
+//   box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, 0.25);
+// }
+
+// #projects .desktop .screen {
+//   background-color: white;
+//   position: absolute;
+//   top: 20px;
+//   bottom: 2px;
+//   left: 2px;
+//   right: 2px;
+//   background-size: cover;
+//   background-position: top center;
+// }
+
+// #projects .mobile {
+//   height: 125px;
+//   width: 65px;
+//   border-radius: 10px;
+//   background-color: lightgrey;
+//   position: absolute;
+//   top: 75px;
+//   left: 200px;
+//   z-index: 1;
+//   box-shadow: 0px 5px 20px 1px rgba(0, 0, 0, 0.25);
+// }
+
+// #projects .mobile .screen {
+//   background-color: white;
+//   position: absolute;
+//   top: 15px;
+//   left: 2px;
+//   right: 2px;
+//   bottom: 15px;
+//   background-size: cover;
+//   background-position: top center;
+// }
+
+// #project {
+//   width: 60vw;
+// }
+
+// #project img {
+//   max-width: 100%;
+// }
+
+// #project h1 {
+//   text-align: left;
+//   padding: unset;
+// }
+
 /* Card */
 .card {
-  border-radius: 16px;
+  @include card-styles;
   background: white;
-  box-shadow: 0px 0px 4px 1px rgba(112, 128, 144, 0.5);
   display: inline-block;
   padding: 20px;
   display: grid;
@@ -642,14 +799,14 @@ button {
   & * {
     margin: 0;
   }
+}
 
-  & .card-link {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
+.card-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 /* Modal */
@@ -716,133 +873,6 @@ a {
 .startbutton:hover {
   color: grey;
   cursor: pointer;
-}
-
-#projectswrapper {
-  position: relative;
-}
-
-/* #projectswrapper:before {
-    content: "";
-    height: 100px;
-    width: 100%;
-    position: absolute;
-    top: -100px;
-    left: 0;
-    right: 0;
-    background: radial-gradient(circle at 50% 100%, white 50%, transparent 51%);
-    background-size: 100px 100px;
-    background-repeat: repeat-x;
-  } */
-
-/* #projectswrapper:after {
-    content: "";
-    height: 100px;
-    width: 100%;
-    position: absolute;
-    bottom: -100px;
-    left: 0;
-    right: 0;
-    background: radial-gradient(circle at 50% 0%, white 50%, transparent 51%);
-    background-size: 100px 100px;
-    background-repeat: repeat-x;
-    z-index: 1;
-  } */
-
-#projectswrapper h1 {
-  text-align: center;
-  padding: 75px;
-}
-
-.projects-scroll-wrapper {
-  overflow: hidden;
-  padding-bottom: 100px;
-}
-
-.projectswrapper--inner {
-  padding: 0px 20vw;
-  width: 60vw;
-}
-
-#projects {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  align-content: space-around;
-}
-
-#projects .project {
-  height: 275px;
-  width: 275px;
-  position: relative;
-  cursor: pointer;
-  margin: 30px;
-}
-
-#projects a .project {
-  color: black;
-}
-
-#projects .project h1 {
-  width: 225px;
-  padding: inherit;
-}
-
-#projects .desktop {
-  height: 155px;
-  width: 225px;
-  background-color: lightgrey;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  position: relative;
-  box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, 0.25);
-}
-
-#projects .desktop .screen {
-  background-color: white;
-  position: absolute;
-  top: 20px;
-  bottom: 2px;
-  left: 2px;
-  right: 2px;
-  background-size: cover;
-  background-position: top center;
-}
-
-#projects .mobile {
-  height: 125px;
-  width: 65px;
-  border-radius: 10px;
-  background-color: lightgrey;
-  position: absolute;
-  top: 75px;
-  left: 200px;
-  z-index: 1;
-  box-shadow: 0px 5px 20px 1px rgba(0, 0, 0, 0.25);
-}
-
-#projects .mobile .screen {
-  background-color: white;
-  position: absolute;
-  top: 15px;
-  left: 2px;
-  right: 2px;
-  bottom: 15px;
-  background-size: cover;
-  background-position: top center;
-}
-
-#project {
-  width: 60vw;
-}
-
-#project img {
-  max-width: 100%;
-}
-
-#project h1 {
-  text-align: left;
-  padding: unset;
 }
 
 /** COMPONENTS **/
