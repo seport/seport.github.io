@@ -20,7 +20,7 @@ const Header = () => {
 
   // set section on scroll
   useEffect(() => {
-    if (location.path === '/resume') {
+    if (location.path.match(/\/resume/)) {
       setCurrentSection('resume')
       return
     }
