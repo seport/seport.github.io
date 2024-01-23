@@ -18,6 +18,7 @@ $border-shadow: rgba(112, 128, 144, 0.5);
 // spacing
 $spacing-0_5x: 4px;
 $spacing-1x: 8px;
+$spacing-1_5x: 12px;
 $spacing-2x: 16px;
 $spacing-3x: 24px;
 $spacing-4x: 32px;
@@ -115,6 +116,7 @@ $mobile: 660;
 }
 
 /* Body */
+html,
 body {
   font-family: $body-font-family;
   font-weight: 400;
@@ -657,16 +659,76 @@ button {
   }
 }
 
+/* Resume */
+#resume {
+  margin-bottom: $spacing-12x;
+  & .resume--title {
+    text-align: center;
+  }
+  & .resume--header {
+    font-family: $body-font-family;
+    color: $body-color;
+    font-weight: 500;
+    text-decoration: underline;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+  }
+  & .resume--subheader {
+    font-family: $body-font-family;
+    color: $body-color;
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+  }
+  & .resume--grid {
+    display: grid;
+    @include max-width($mobile) {
+      grid-template-rows: auto auto;
+    }
+    @include min-width($mobile) {
+      grid-template-columns: 1fr auto;
+    }
+  }
+  & hr {
+    border: 1px solid $black;
+    border-top: none;
+    margin: $spacing-4x 0;
+  }
+
+  & ul {
+    margin: 0;
+    padding-left: $spacing-1_5x;
+
+    & li {
+      list-style-type: '•';
+      padding-left: $spacing-1_5x;
+    }
+  }
+}
+
 /* Banner */
 .banner {
   border-radius: $spacing-2x;
-  background-color: $boba-brown;
   color: $white;
   padding: $spacing-1x $spacing-4x;
   display: flex;
   align-items: center;
   gap: $spacing-2x;
   margin: $spacing-4x 0;
+  min-height: $spacing-4x;
+
+  &--boba {
+    background-color: $boba-brown;
+  }
+
+  &--info {
+    background-color: $dark-pink;
+  }
 
   & .banner--content {
     width: 100%;

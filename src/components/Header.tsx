@@ -1,23 +1,29 @@
 import { getVisibleSection } from "@/helpers/visibleSectionHelper";
 import useScroll from "@/hooks/useScroll";
-import { Contact } from "@/pages/Contact";
-import HamburgerIcon from '@/public/icon-hamburger.svg';
-import XIcon from '@/public/icon-x.svg';
+import { Contact } from "@/components/Contact";
+import HamburgerIcon from '@/images/icon-hamburger.svg';
+import XIcon from '@/images/icon-x.svg';
 import cx from 'classnames';
 import React, { createRef, useEffect, useState } from "react";
 import { CSSTransition } from 'react-transition-group';
+import useWindowLocation from "@/hooks/useWindowLocation";
 
 const Header = () => {
   const scrollY = useScroll()
   const [lastScroll, setLastScroll] = useState(0)
   const [iconAdjust, setIconAdjust] = useState(0)
-  const [currentSection, setCurrentSection] = useState('#about')
+  const [currentSection, setCurrentSection] = useState<string>()
   const [isNavMenuOpen, setisNavMenuOpen] = useState(false)
 
   const navigationRef = createRef<HTMLDivElement>()
+  const location = useWindowLocation()
 
   // set section on scroll
   useEffect(() => {
+    if (location.path === '/resume') {
+      setCurrentSection('resume')
+      return
+    }
     const newCurrentSection = getVisibleSection(scrollY)
     if (currentSection !== newCurrentSection) {
       setCurrentSection(newCurrentSection)
@@ -36,8 +42,11 @@ const Header = () => {
 
   // set url path on section change
   useEffect(() => {
+    if (currentSection === undefined || currentSection === 'resume') {
+      return
+    }
     if (currentSection === "about") {
-      window.history.pushState({}, '', `/`)
+      // window.history.pushState({}, '', `/`)
     } else {
       window.history.pushState({}, '', `#${currentSection}`)
     }
@@ -77,19 +86,22 @@ const Header = () => {
           <div className="menu-links">
             <ul>
               <li>
-                <a href="#about" className={isCurrent('about')} onClick={closeNav}>Top</a>
+                <a href="/#about" className={isCurrent('about')} onClick={closeNav}>Top</a>
               </li>
               <li>
-                <a href="#skills" className={isCurrent('skills')} onClick={closeNav}>Skills</a>
+                <a href="/#skills" className={isCurrent('skills')} onClick={closeNav}>Skills</a>
               </li>
               <li>
-                <a href="#blogs" className={isCurrent('blogs')} onClick={closeNav}>Blogs</a>
+                <a href="/#blogs" className={isCurrent('blogs')} onClick={closeNav}>Blogs</a>
               </li>
               <li>
-                <a href="#projects" className={isCurrent('projects')} onClick={closeNav}>Projects</a>
+                <a href="/#projects" className={isCurrent('projects')} onClick={closeNav}>Projects</a>
               </li>
               <li>
-                <a href="#contact" className={isCurrent('contact')} onClick={closeNav}>Contact</a>
+                <a href="/#contact" className={isCurrent('contact')} onClick={closeNav}>Contact</a>
+              </li>
+              <li>
+                <a href="/resume" className={isCurrent('resume')} onClick={closeNav}>Resume</a>
               </li>
             </ul>
           </div>

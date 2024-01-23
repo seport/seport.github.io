@@ -1,11 +1,11 @@
 import React from 'react';
-import forgeLogo from '@/public/forgelogo.png'
-import taskrabbitLogo from '@/public/taskrabbitlogo.png';
-import compassLogo from '@/public/compasslogo.png';
-import FRALogo from '@/public/foodrescuealliancelogo.png';
-import rottentomatoesLogo from '@/public/rottentomatoeslogo.png';
-import h4laLogo from '@/public/hackforlalogo.png';
-import soundcloudLogo from '@/public/soundcloudlogo.png';
+import forgeLogo from '@/images/forgelogo.png'
+import taskrabbitLogo from '@/images/taskrabbitlogo.png';
+import compassLogo from '@/images/compasslogo.png';
+import FRALogo from '@/images/foodrescuealliancelogo.png';
+import rottentomatoesLogo from '@/images/rottentomatoeslogo.png';
+import h4laLogo from '@/images/hackforlalogo.png';
+import soundcloudLogo from '@/images/soundcloudlogo.png';
 
 const Clients = () => <div id="clients">
     <div>

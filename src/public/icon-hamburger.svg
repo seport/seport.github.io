@@ -1,5 +1,0 @@
-<svg height="26" width="26" viewBox="0 0 26 26" stroke="#currentColor">
-  <path d="M 2 6.5 L 24 6.5" stroke-width="4" stroke-linecap="round" class="top-line" />
-  <path d="M 2 13.33721 H 24" stroke-width="4" stroke-linecap="round" class="middle-line"/>
-  <path d="M 24 20.5 L 2 20.5" stroke-width="4" stroke-linecap="round" class="bottom-line" />
-</svg>

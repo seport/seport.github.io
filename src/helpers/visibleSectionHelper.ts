@@ -1,8 +1,8 @@
-import { blogsRef } from "@/pages/Blogs"
-import { contactRef } from "@/pages/Contact"
-import { heroRef } from "@/pages/Hero"
-import { projectsRef } from "@/pages/Projects"
-import { skillsRef } from "@/pages/Skills"
+import { blogsRef } from "@/components/Blogs"
+import { contactRef } from "@/components/Contact"
+import { heroRef } from "@/components/Hero"
+import { projectsRef } from "@/components/Projects"
+import { skillsRef } from "@/components/Skills"
 
 export const getVisibleSection = (scrollY: number) => {
     const sectionRefs = [

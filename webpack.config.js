@@ -1,19 +1,26 @@
 const path = require('path');
+const glob = require('glob');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
+const entry = glob.sync('./src/pages/*.js', { dotRelative: true }).reduce((acc, curr) => ({ ...acc, [path.basename(curr, '.js')]: curr }), {})
+const htmlWebpackPlugins = Object.keys(entry).map((file) => {
+  return new HtmlWebpackPlugin({
+    title: 'Sarah Port (っ·ᴥ·)っ',
+    favicon: './src/images/favico.png',
+    // inject: false,
+    chunks: [file],
+    filename: file === 'index' ? 'index.html' : `${file}/index.html` // TODO: Why can't I use '[name].html'?
+  })
+})
+
 module.exports = {
   mode: 'development',
-  entry: {
-    index: './src/index.js',
-  },
+  entry,
   plugins: [
-    new HtmlWebpackPlugin({
-      title: 'Sarah Port (っ·ᴥ·)っ',
-      favicon: './src/public/favico.png'
-    }),
+    ...htmlWebpackPlugins,
     new CopyWebpackPlugin({
-      patterns: [{ from: './archive', to: '.' }]
+      patterns: [{ from: './archive', to: '.' }, { from: './src/public', to: './public'}]
     })
   ],
   devtool: 'inline-source-map',
@@ -21,6 +28,7 @@ module.exports = {
     static: './dist',
     port: 3000,
     hot: true,
+    // historyApiFallback: true,
   },
   module: {
     rules: [
@@ -88,6 +96,7 @@ module.exports = {
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    // publicPath: "/",
     clean: true,
   },
 };

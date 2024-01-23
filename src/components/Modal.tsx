@@ -1,6 +1,6 @@
 import Card from "@/components/Card";
 import React, { PropsWithChildren, createRef } from "react";
-import CloseIcon from "@/public/icon-x.svg"
+import CloseIcon from "@/images/icon-x.svg"
 
 export const Modal = ({ isOpen, toggleOpen, children }: PropsWithChildren<{ isOpen: boolean, toggleOpen: () => void }>) => {
     const modalRef = createRef<HTMLDivElement>()
