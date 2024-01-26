@@ -38,7 +38,7 @@ const Resume = () => {
                 <br />
                 <div className="resume--grid">
                     <h3 className="resume--subheader">Mentor</h3>
-                    <div>April 2017 - March 2021</div>
+                    <div>April 2017 - June 2017</div>
                 </div>
                 <div>Codecademy</div>
                 <ul>
