@@ -1,4 +1,4 @@
-import { Banner } from "@/components/Banner";
+import { Banner } from "@/components/banner";
 import { Contact } from "@/components/Contact";
 import Header from "@/components/Header";
 import React from "react";

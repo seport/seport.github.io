@@ -1,7 +1,7 @@
 import React, { createRef, useEffect } from "react";
 import useScroll from "@/hooks/useScroll";
 import { useBackground } from "@/contexts/backgroundContext";
-import { Banner } from "@/components/Banner";
+import { Banner } from "@/components/banner";
 import BobaIcon from "@/images/boba.svg"
 
 export const heroRef = createRef<HTMLDivElement>();
