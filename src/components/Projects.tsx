@@ -2,6 +2,7 @@ import React, { createRef, useState } from "react";
 
 import crocodentistImg from "@/images/crocodentist.gif";
 import faceworkImg from "@/images/faceworkbanner.jpeg"
+import friendsAtTheFeastImg from "@/images/friends-at-the-feast.png"
 import { Modal } from "@/components/Modal";
 import projects from "@/projects";
 import Markdown from "markdown-to-jsx";
@@ -31,6 +32,11 @@ const Projects = () => {
         <button className="button--plain card-link" name="facework" onClick={openModal}></button>
           <img src={faceworkImg} />
           <h3>Facework</h3>
+        </div>
+        <div className="project">
+          <a className="button--plain card-link" href="https://donteatbees.itch.io/friends-at-the-feast"/>
+          <img src={friendsAtTheFeastImg} />
+          <h3>Friends at the Feast</h3>
         </div>
       </div>
       <Modal isOpen={modalIsOpen} toggleOpen={() => { setModalIsOpen(!modalIsOpen) }}>

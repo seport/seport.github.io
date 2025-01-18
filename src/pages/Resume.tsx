@@ -16,6 +16,17 @@ const Resume = () => {
                 </div>
                 <h2 className="resume--header">Relevant Employment History</h2>
                 <div className="resume--grid">
+                    <h3 className="resume--subheader">Lead Backend Engineer</h3>
+                    <div>May 2024 - Present</div>
+                </div>
+                <div>Malama GO</div>
+                <ul>
+                    <li>Built a scalable Node.js API to replace a legacy PHP backend, integrating with MySQL and supporting multiple frontends.</li>
+                    <li>Developed user management systems and a custom Unix-style wildcard-based authorization framework.</li>
+                    <li>Modernized a PHP app by integrating it into a React web app using pub/sub messaging for seamless migration.</li>
+                </ul>
+                <br />
+                <div className="resume--grid">
                     <h3 className="resume--subheader">Front End Software Engineer</h3>
                     <div>February 2022 - December 2023</div>
                 </div>
@@ -34,27 +45,6 @@ const Resume = () => {
                 <ul>
                     <li>Coached clients on Extreme Programming and agile software development process.</li>
                     <li>Worked as a consultant with cross-cutting teams on products ranging from prototypes to large scale data integrations and legacy codebase refactors.</li>
-                </ul>
-                <br />
-                <div className="resume--grid">
-                    <h3 className="resume--subheader">Mentor</h3>
-                    <div>April 2017 - June 2017</div>
-                </div>
-                <div>Codecademy</div>
-                <ul>
-                    <li>Developed and delivered weekly 1 hour webinars for a cohort of beginner web development students.</li>
-                    <li>Webinars included topics and best practices on HTML, CSS, Git and Github, Bootstrap, and JavaScript.</li>
-                </ul>
-                <br />
-                <div className="resume--grid">
-                    <h3 className="resume--subheader">Engineering Intern</h3>
-                    <div>March 2016 - February 2017</div>
-                </div>
-                <div>Rivo</div>
-                <ul>
-                    <li>Designed and coded the Rivo Web App in the MEAN stack and integrated login with the iPhone app.</li>
-                    <li>Contributed front and back end code to the Customer Portal web app.</li>
-                    <li>Created internal tools in Node.js and JavaScript for the admin tool and fixed bugs in the Java API.</li>
                 </ul>
                 <br />
                 <div className="resume--grid">

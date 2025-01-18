@@ -117,7 +117,7 @@ const Header = () => {
               </a>
             </li>
             <li>
-              <a href="https://twitter.com/seport_">Twitter</a>
+              <a href="https://techhub.social/@seport">Mastodon</a>
             </li>
             <li>
               <a href="https://www.linkedin.com/in/seport" target="_blank">
