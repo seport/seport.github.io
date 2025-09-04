@@ -18,6 +18,13 @@ const Blogs = () => {
         <ul>
           <li>
             <BlogCard
+              url="https://medium.com/@seport/mounting-google-cloud-storage-buckets-as-static-assets-in-next-js-afc7c17daf50"
+              header="Mounting Google Cloud Storage Buckets as Static Assets in Next.js"
+              description="On my current project, we have a Next.js web service deployed on Google Cloud Run. We also have some image files being stored in a bucket on GCS. I was asked something simple: serve the bucket files as static assets from our web service, so they can be accessed from our frontend at our-service.com/img/file-name.jpg"
+            />
+          </li>
+          <li>
+            <BlogCard
               url="https://developers.soundcloud.com/blog/pr-templates-for-effective-pull-requests/"
               header="PR Templates for Effective Pull Requests"
               description="Empty pull request descriptions slow down teams, but PR templates are a quick and easy remedy. By streamlining the PR writing process into a series of fill-in-the-blank steps, a PR becomes a valuable asset for knowledge sharing across teams that will outlive its authors."
